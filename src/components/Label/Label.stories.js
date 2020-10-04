@@ -11,8 +11,15 @@ export default {
 
 const Template = (args) => <Label {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Mini = Template.bind({});
+Mini.args = {
   color: '#333333',
 };
 
+export const Expanded = Template.bind({});
+Expanded.args = {
+  color: '#39CCCC',
+  text: 'A new label for something',
+  expand: true,
+  height: '18px',
+};
