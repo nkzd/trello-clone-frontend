@@ -19,7 +19,7 @@ Mini.args = {
 export const Expanded = Template.bind({});
 Expanded.args = {
   color: '#39CCCC',
-  text: 'A new label for something',
+  name: 'A new label for something',
   expand: true,
   height: '18px',
 };
