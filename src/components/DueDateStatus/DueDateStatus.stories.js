@@ -1,15 +1,15 @@
 import React from 'react';
-import DueDate from './index';
+import DueDateStatus from './index';
 
 export default {
-  title: 'DueDate',
-  component: DueDate,
+  title: 'DueDateStatus',
+  component: DueDateStatus,
   argTypes: {
     color: { control: 'color' },
   },
 };
 
-const Template = (args) => <DueDate {...args} />;
+const Template = (args) => <DueDateStatus {...args} />;
 
 export const Gray = Template.bind({});
 Gray.args = {

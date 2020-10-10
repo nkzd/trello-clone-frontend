@@ -7,7 +7,7 @@ import { PauseCircle } from '@styled-icons/boxicons-regular/PauseCircle';
 import { X } from '@styled-icons/boxicons-regular/X';
 import { Check } from '@styled-icons/boxicons-regular/Check';
 
-const Status = ({ status }) => {
+const ProgressStatus = ({ status }) => {
   switch (status) {
     case 'Not Started':
       return (
@@ -59,4 +59,4 @@ export const IconStyleWrapper = styled.div`
   }
 `;
 
-export default Status;
+export default ProgressStatus;

@@ -1,15 +1,15 @@
 import React from 'react';
-import Description from './index';
+import DescriptionStatus from './index';
 
 export default {
-  title: 'Description',
-  component: Description,
+  title: 'DescriptionStatus',
+  component: DescriptionStatus,
   argTypes: {
     color: { control: 'color' },
   },
 };
 
-const Template = (args) => <Description {...args} />;
+const Template = (args) => <DescriptionStatus {...args} />;
 
 export const Gray = Template.bind({});
 Gray.args = {

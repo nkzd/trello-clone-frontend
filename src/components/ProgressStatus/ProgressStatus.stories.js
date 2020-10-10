@@ -1,11 +1,11 @@
 import React from 'react';
-import Status from './index';
+import ProgressStatus from './index';
 
 export default {
-  title: 'Status',
-  component: Status,
+  title: 'ProgressStatus',
+  component: ProgressStatus,
   argTypes: {
-    status: {
+    ProgressStatus: {
       control: {
         type: 'select',
         options: [
@@ -20,9 +20,9 @@ export default {
   },
 };
 
-const Template = (args) => <Status {...args} />;
+const Template = (args) => <ProgressStatus {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  status: 'Not Started',
+  ProgressStatus: 'Not Started',
 };
