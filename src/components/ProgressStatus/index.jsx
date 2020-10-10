@@ -7,8 +7,8 @@ import { PauseCircle } from '@styled-icons/boxicons-regular/PauseCircle';
 import { X } from '@styled-icons/boxicons-regular/X';
 import { Check } from '@styled-icons/boxicons-regular/Check';
 
-const ProgressStatus = ({ status }) => {
-  switch (status) {
+const ProgressStatus = ({ progressStatus }) => {
+  switch (progressStatus) {
     case 'Not Started':
       return (
         <IconStyleWrapper>

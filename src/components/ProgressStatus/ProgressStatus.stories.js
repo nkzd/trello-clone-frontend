@@ -5,7 +5,7 @@ export default {
   title: 'ProgressStatus',
   component: ProgressStatus,
   argTypes: {
-    ProgressStatus: {
+    progressStatus: {
       control: {
         type: 'select',
         options: [
@@ -24,5 +24,5 @@ const Template = (args) => <ProgressStatus {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  ProgressStatus: 'Not Started',
+  progressStatus: 'Not Started',
 };
