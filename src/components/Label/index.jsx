@@ -17,7 +17,6 @@ const LineLabelMini = styled.div`
   height: 8px;
   background-color: ${(props) => (props.color ? props.color : 'red')};
   border-radius: 5px;
-  margin: 3px;
 `;
 
 const LineLabelExpanded = styled.div`
@@ -26,12 +25,12 @@ const LineLabelExpanded = styled.div`
   font-weight: bolder;
   color: #fff;
   padding: 3px 10px;
-  margin: 3px;
   min-width: 40px;
   height: ${(props) => (props.height ? props.height : '16px')};
   line-height: ${(props) => (props.height ? props.height : '16px')};
   background-color: ${(props) => (props.color ? props.color : 'red')};
   border-radius: 5px;
+  overflow: hidden;
 `;
 
 export default Label;

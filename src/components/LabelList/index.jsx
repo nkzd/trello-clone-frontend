@@ -31,6 +31,14 @@ const LabelListWrapper = styled.div`
   &:hover {
     filter: brightness(85%);
   }
+  
+  & > *:last-child {
+    margin-right: 0px;
+  }
+  & > * {
+    margin: 3px 3px 3px 0px; 
+  }
+  
 `;
 
 export default LabelList;
