@@ -12,50 +12,50 @@ const ProgressStatus = ({ progressStatus }) => {
     case 'Not Started':
       return (
         <IconStyleWrapper>
-          <StopCircle size='18' />
+          <StopCircle size={20} />
         </IconStyleWrapper>
       );
 
     case 'In-Progress':
       return (
         <IconStyleWrapper>
-          <Play size='18' />
+          <Play size={20} />
         </IconStyleWrapper>
       );
 
     case 'On-Hold':
       return (
         <IconStyleWrapper>
-          <PauseCircle size='18' />
+          <PauseCircle size={20} />
         </IconStyleWrapper>
       );
 
     case 'Cancelled':
       return (
         <IconStyleWrapper>
-          <X size='18' />
+          <X size={20} />
         </IconStyleWrapper>
       );
 
     case 'Complete':
       return (
         <IconStyleWrapper>
-          <Check size='18' />
+          <Check size={20} />
         </IconStyleWrapper>
       );
 
     default:
       return (
         <IconStyleWrapper>
-          <StopCircle size='18' />
+          <StopCircle size={20} />
         </IconStyleWrapper>
       );
   }
 };
 
-export const IconStyleWrapper = styled.div`
+export const IconStyleWrapper = styled.span`
   ${StyledIconBase} {
-    color: #aaaaaa;
+    color: #616161;
   }
 `;
 
