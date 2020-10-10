@@ -11,6 +11,8 @@ export default {
 
 const Template = (args) => <DescriptionStatus {...args} />;
 
+export const Default = Template.bind({});
+
 export const Gray = Template.bind({});
 Gray.args = {
   size: '64',

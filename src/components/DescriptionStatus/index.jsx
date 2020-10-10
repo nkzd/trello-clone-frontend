@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TextLeft } from '@styled-icons/bootstrap/TextLeft';
 
-const DescriptionStatus = ({ size, color }) => (
+const DescriptionStatus = ({ size=18, color="#616161" }) => (
   <DescriptionStatusIcon color={color} size={size} />
 );
 

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Clock } from '@styled-icons/bootstrap/Clock';
 
-const DueDateStatus = ({ color, size, text }) => {
+const DueDateStatus = ({ color="#616161", size=18, text }) => {
   return (
     <>
       <ClockIcon color={color} size={size} />
