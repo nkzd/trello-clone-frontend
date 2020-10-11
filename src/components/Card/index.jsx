@@ -28,10 +28,13 @@ const CardWrapper = styled.div`
   max-width: 300px;
   min-height: 32px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  //TODO: fix for safari
-  gap: 10px;
+  & > * {
+    margin-top: 10px;
+  }
+  & > *:first-child {
+    margin-top: 0px;
+  }
 `;
 
 const NameWrapper = styled.div`
