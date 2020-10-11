@@ -16,11 +16,9 @@ const Statuses = ({ descriptionStatus, dueDate, progressStatus }) => {
   );
 };
 const StatusesWrapper = styled.div`
-    height: 30px;
     display: flex;
     flex-direction: row;
-    align-content: center;
-
+    align-items: center;
 
     & > * {
       margin-right: 7px;
