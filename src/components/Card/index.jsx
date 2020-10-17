@@ -18,14 +18,13 @@ const Card = ({ labels, name, progressStatus, descriptionStatus, dueDate }) => (
 
 const CardWrapper = styled.div`
   box-sizing: border-box;
-  width: 250px;
-  padding: 10px;
+  width: 256px;
+  padding: 8px;
   background-color: #fff;
   box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 8px;
-  max-width: 300px;
   min-height: 32px;
   display: flex;
   flex-direction: column;

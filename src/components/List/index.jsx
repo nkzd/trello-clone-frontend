@@ -19,10 +19,11 @@ const ListNameWrapper = styled.div`
 
 const ListWrapper = styled.div`
   box-sizing: border-box;
+  flex: 0 0 272px;
   width: 272px;
-  margin: 0 4px;
+  margin: 0 5px;
   background-color: #ebecf0;
-  border-radius: 3px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
