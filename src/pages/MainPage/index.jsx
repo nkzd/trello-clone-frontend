@@ -60,6 +60,7 @@ const ListsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  margin-top: 10px;
 `;
 
 export default MainPage;

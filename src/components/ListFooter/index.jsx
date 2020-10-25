@@ -20,6 +20,7 @@ const ListFooterWrapper = styled.div`
   align-items: center;
   padding: 5px;
   border-radius: 5px;
+  cursor: pointer;
   &:hover {
     background-color: rgba(9, 30, 66, 0.08);
   }
