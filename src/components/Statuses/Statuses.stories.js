@@ -41,20 +41,12 @@ One.args = {
 export const Two = Template.bind({});
 Two.args = {
   descriptionStatus : true,
-  dueDate: 'Oct 9',
+  dueDate: '1603651162',
 };
 
 export const Three = Template.bind({});
 Three.args = {
   descriptionStatus : true,
-  dueDate: 'Oct 9',
+  dueDate: '1603651162',
   progressStatus: 'Not Started'
 };
-
-// export const Two = Template.bind({});
-// Silver.args = {
-//   size: '64',
-//   color: '#DDDDDD',
-// };
-
-// export const All = Template.bind({});

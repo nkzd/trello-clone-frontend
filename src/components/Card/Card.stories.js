@@ -40,6 +40,6 @@ Three.args = {
       {name: 'bo problemo', color: "lightpink"},
   ],
   descriptionStatus : true,
-  dueDate: 'Oct 9',
+  dueDate: '1603651162',
   progressStatus: 'Not Started'
 };
