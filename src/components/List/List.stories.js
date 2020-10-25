@@ -1,9 +1,7 @@
-// List.stories.js
-
 import React from 'react';
 import List from './index';
 import Card from '../Card/'
-import { Three } from '../Card/Card.stories.js';
+import { Three, Two, One } from '../Card/Card.stories.js';
 
 
 export default {
@@ -12,24 +10,28 @@ export default {
 };
 
 const Template = (args) => (
-  <List {...args}>
-    <Card {...Three.args} />
-    <Card {...Three.args} />
-    <Card {...Three.args} />
-  </List>
+  <List {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'Completed'
+  name: 'Work Work',
+  cards: [
+    Three.args,
+    Two.args,
+    One.args
+  ]
 }
 
-const TemplateNoCards = (args) => (
-  <List {...args}>
-  </List>
-);
+export const Secondary = Template.bind({});
+Secondary.args = {
+  name: 'In-Progress',
+  cards: [
+    One.args
+  ]
+}
 
-export const NoCards = TemplateNoCards.bind({});
+export const NoCards = Template.bind({});
 NoCards.args = {
   name: 'Backend'
 }

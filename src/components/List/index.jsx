@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Card from '../Card';
 import ListFooter from '../ListFooter';
 
-const List = ({ name, children }) => {
+const List = ({ name, cards = [] }) => {
   return (
     <ListWrapper>
       <ListNameWrapper>{name}</ListNameWrapper>
-      {children}
+      {cards.map((card, index) => {
+        return <Card {...card} key={index} />;
+      })}
       <ListFooter />
     </ListWrapper>
   );
