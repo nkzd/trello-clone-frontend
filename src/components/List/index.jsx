@@ -7,8 +7,8 @@ const List = ({ name, cards = [] }) => {
   return (
     <ListWrapper>
       <ListNameWrapper>{name}</ListNameWrapper>
-      {cards.map((card, index) => {
-        return <Card {...card} key={index} />;
+      {cards.map((card) => {
+        return <Card {...card} key={card._id} />;
       })}
       <ListFooter />
     </ListWrapper>

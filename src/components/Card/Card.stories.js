@@ -11,11 +11,13 @@ const Template = (args) => <Card {...args} />;
 
 export const One = Template.bind({});
 One.args = {
+  _id: '5f788feba88e353396e55ec1',
   name: 'Markoooo'
 };
 
 export const Two = Template.bind({});
 Two.args = {
+  _id: '5f788feba88e353396e52ec2',
   name: 'With labels',
   labels: [
       {name: 'Whatever', color: "lightcoral"},
@@ -28,6 +30,7 @@ Two.args = {
 
 export const Three = Template.bind({});
 Three.args = {
+  _id: '5f788feba88e353396e54dc3',
   name: 'With labels',
   labels: [
       {name: 'Whatever', color: "lightcoral"},

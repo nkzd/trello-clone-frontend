@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../../components/Card';
 import HeaderBar from '../../components/HeaderBar';
 import List from '../../components/List';
 
@@ -25,30 +24,18 @@ const demoArgs2 = {
 };
 
 const demoArgs3 = {
-  name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend'
+  name:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend',
 };
 
-const MainPage = () => {
+const MainPage = ({ lists=[] }) => {
   return (
     <MainPageWrapper>
       <HeaderBar />
       <ListsWrapper>
-        <List name='completed'>
-          <Card {...demoArgs} />
-          <Card {...demoArgs} />
-          <Card {...demoArgs3} />
-        </List>
-        <List name='completed'>
-          <Card {...demoArgs} />
-          <Card {...demoArgs2} />
-          <Card {...demoArgs} />
-        </List>
-        <List name='completed'>
-        </List>
-        <List name='completed'>
-          <Card {...demoArgs3} />
-          <Card {...demoArgs} />
-        </List>
+        {lists.map((list, index) => {
+          return <List name={list.name} cards={list.cards} key={list._id} />;
+        })}
       </ListsWrapper>
     </MainPageWrapper>
   );
