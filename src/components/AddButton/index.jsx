@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AddButton = ({ text }) => {
-  return <StyledButton>{text}</StyledButton>;
+  return <StyledButton type='button'>{text}</StyledButton>;
 };
 
 const StyledButton = styled.button`
