@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import HeaderBar from '../../components/HeaderBar';
 import List from '../../components/List';
+import AddAnotherList from "../../components/AddAnotherList";
 
 const MainPage = ({ lists=[] }) => {
   return (
@@ -11,6 +12,7 @@ const MainPage = ({ lists=[] }) => {
         {lists.map((list, index) => {
           return <List name={list.name} cards={list.cards} key={list._id} />;
         })}
+        <AddAnotherList />
       </ListsWrapper>
     </MainPageWrapper>
   );
