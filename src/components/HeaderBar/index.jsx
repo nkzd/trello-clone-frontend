@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { DotsHorizontalRounded } from '@styled-icons/boxicons-regular/DotsHorizontalRounded';
 
-const HeaderBar = () => {
+const HeaderBar = ({handleSidebar}) => {
+
   return (
     <HeaderBarWrapper>
       <div>Whateverello</div>
-      <DotsIcon size={25} />
+      <DotsIcon size={25} onClick={handleSidebar}/>
     </HeaderBarWrapper>
   );
 };

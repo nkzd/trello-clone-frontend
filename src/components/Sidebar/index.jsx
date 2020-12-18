@@ -1,20 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import XButton from '../XButton';
-const Sidebar = () => {
+import {
+  grayColor,
+  blueColor,
+  redColor,
+  greenColor,
+  bg1,
+  bg2,
+  bg3,
+  bg4,
+  bg5,
+  bg6,
+} from '../../util/constants';
+
+const Sidebar = ({setColor, setImage, closeSidebar}) => {
   return (
     <SidebarWrapper>
       <SidebarHeader>
         <span className='flexAlign' />
         <span>Background</span>
-        <XButton />
+        <XButton onClick={closeSidebar}/>
       </SidebarHeader>
       <hr />
       <SidebarBody>
-        <SolidColorWrapper color='rgb(131, 140, 145)' />
-        <SolidColorWrapper color='rgb(0, 121, 191);' />
-        <SolidColorWrapper color='rgb(176, 70, 50)' />
-        <SolidColorWrapper color='rgb(75, 191, 107)' />
+        <ColorClickWrapper handleClick={setColor} color={grayColor} />
+        <ColorClickWrapper handleClick={setColor} color={blueColor} />
+        <ColorClickWrapper handleClick={setColor} color={redColor} />
+        <ColorClickWrapper handleClick={setColor} color={greenColor} />
+        <ImageClickWrapper handleClick={setImage} image={bg1} />
+        <ImageClickWrapper handleClick={setImage} image={bg2} />
+        <ImageClickWrapper handleClick={setImage} image={bg3} />
+        <ImageClickWrapper handleClick={setImage} image={bg4} />
+        <ImageClickWrapper handleClick={setImage} image={bg5} />
+        <ImageClickWrapper handleClick={setImage} image={bg6} />
       </SidebarBody>
     </SidebarWrapper>
   );
@@ -22,8 +41,12 @@ const Sidebar = () => {
 
 const SidebarWrapper = styled.div`
   box-sizing: border-box;
-  background: rgba(9, 30, 66, 0.08);
+  /* background: rgba(9, 30, 66, 0.08); */
+  background-color: #ebecf0;
   width: 340px;
+  hr {
+    margin: 0px;
+  }
 `;
 
 const SidebarHeader = styled.div`
@@ -42,14 +65,22 @@ const SidebarHeader = styled.div`
 
 const SidebarBody = styled.div`
   width: 340px;
+  padding: 10px 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
-  height: 100vh;
 `;
+
+const ColorClickWrapper = ({ color, handleClick }) => (
+  <SolidColorWrapper color={color} onClick={() => handleClick(color)} />
+);
+
+const ImageClickWrapper = ({ image, handleClick }) => (
+  <ImageWrapper src={`${image}152x96`} onClick={() => handleClick(image)} />
+);
 
 const SolidColorWrapper = styled.div`
   box-sizing: border-box;
@@ -57,6 +88,14 @@ const SolidColorWrapper = styled.div`
   height: 96px;
   border-radius: 5px;
   background-color: ${(props) => props.color};
+  margin: 5px;
+`;
+
+const ImageWrapper = styled.img`
+  box-sizing: border-box;
+  width: 152px;
+  height: 96px;
+  border-radius: 5px;
   margin: 5px;
 `;
 
