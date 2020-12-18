@@ -14,13 +14,13 @@ import {
   bg6,
 } from '../../util/constants';
 
-const Sidebar = ({setColor, setImage, closeSidebar}) => {
+const Sidebar = ({ setColor, setImage, closeSidebar }) => {
   return (
     <SidebarWrapper>
       <SidebarHeader>
         <span className='flexAlign' />
         <span>Background</span>
-        <XButton onClick={closeSidebar}/>
+        <XButton onClick={closeSidebar} />
       </SidebarHeader>
       <hr />
       <SidebarBody>
@@ -41,12 +41,12 @@ const Sidebar = ({setColor, setImage, closeSidebar}) => {
 
 const SidebarWrapper = styled.div`
   box-sizing: border-box;
-  /* background: rgba(9, 30, 66, 0.08); */
   background-color: #ebecf0;
   width: 340px;
   hr {
     margin: 0px;
   }
+  border-radius: 5px;
 `;
 
 const SidebarHeader = styled.div`

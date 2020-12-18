@@ -26,18 +26,20 @@ const MainPage = ({ lists = [] }) => {
   };
 
   return (
-    <MainPageWrapper {...background}>
+    <MainPageWrapper {...background} showSidebar={showSidebar}>
       <HeaderBar handleSidebar={handleSidebar} />
       <ListsWrapper>
         {lists.map((list, index) => {
           return <List name={list.name} cards={list.cards} key={list._id} />;
         })}
         <AddAnotherList />
-        {showSidebar ? (
-          <SidebarWrapper>
-            <Sidebar setColor={setColor} setImage={setImage} closeSidebar={handleSidebar}/>
-          </SidebarWrapper>
-        ) : null}
+        <SidebarWrapper showSidebar={showSidebar}>
+          <Sidebar
+            setColor={setColor}
+            setImage={setImage}
+            closeSidebar={handleSidebar}
+          />
+        </SidebarWrapper>
       </ListsWrapper>
     </MainPageWrapper>
   );
@@ -59,6 +61,7 @@ const MainPageWrapper = styled.div`
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
+  overflow-x: ${(props) => (props.showSidebar ? 'visible' : 'hidden')};
 `;
 
 const ListsWrapper = styled.div`
@@ -71,8 +74,10 @@ const ListsWrapper = styled.div`
 
 const SidebarWrapper = styled.div`
   position: absolute;
-  right: 0px;
+  right: 10px;
   top: 0px;
+  transform: ${(props) => (props.showSidebar ? 'translateX(0px)' : 'translateX(350px)')};
+  transition: transform 0.4s linear;
 `;
 
 export default MainPage;
