@@ -1,4 +1,4 @@
-import { reorder } from '../util/dnd';
+import { move, reorder } from '../util/dnd';
 
 const {
   REQUEST_LISTS_REQUEST,
@@ -31,16 +31,15 @@ const lists = (
       const sInd = source.droppableId;
       const dInd = destination.droppableId;
 
-      const sourceList = state.items.find((list) => list._id === sInd);
       const sourceListIndex = state.items.findIndex(
         (list) => list._id === sInd
       );
+      const destinationListIndex = state.items.findIndex(
+        (list) => list._id === dInd
+      );
 
-      const destinationList = state.items.find((list) => list._id === dInd);
-
+      const listsCopy = [...state.items];
       if (sInd === dInd) {
-        const listsCopy = [...state.items];
-
         const reorderedCards = reorder(
           listsCopy[sourceListIndex].cards,
           source.index,
@@ -51,13 +50,18 @@ const lists = (
 
         return { ...state, items: listsCopy };
       } else {
-        // const result = move(state[sInd], state[dInd], source, destination);
-        // const newState = [...state];
-        // newState[sInd] = result[sInd];
-        // newState[dInd] = result[dInd];
-        return state;
-        //TODO
-        // setState(newState.filter((group) => group.length));
+        debugger;
+        const result = move(
+          listsCopy[sourceListIndex].cards,
+          listsCopy[destinationListIndex].cards,
+          source,
+          destination
+        );
+
+        listsCopy[sourceListIndex].cards = result[sInd];
+        listsCopy[destinationListIndex].cards = result[dInd];
+
+        return { ...state, items: listsCopy };
       }
     default:
       return state;
