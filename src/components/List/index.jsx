@@ -1,15 +1,43 @@
 import React from 'react';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import Card from '../Card';
 import ListFooter from '../ListFooter';
 
-const List = ({ name, cards = [] }) => {
+const List = ({ name, cards = [], listId }) => {
   return (
     <ListWrapper>
       <ListNameWrapper>{name}</ListNameWrapper>
-      {cards.map((card) => {
-        return <Card {...card} key={card._id} />;
-      })}
+      <Droppable droppableId={listId}>
+        {(provided, snapshot) => (
+          <div
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            // style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
+          >
+            {cards.map((card, index) => {
+              return (
+                <Draggable key={card._id} draggableId={card._id} index={index}>
+                  {(provided, snapshot) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      // style={getItemStyle(
+                      //   snapshot.isDragging,
+                      //   provided.draggableProps.style
+                      // )}
+                    >
+                      <Card {...card} />
+                    </div>
+                  )}
+                </Draggable>
+              );
+            })}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
       <ListFooter />
     </ListWrapper>
   );

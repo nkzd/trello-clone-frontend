@@ -5,8 +5,11 @@ import List from '../../components/List';
 import AddAnotherList from '../../components/AddAnotherList';
 import Sidebar from '../../components/Sidebar';
 import { grayColor } from '../../util/constants';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { reorder, move } from '../../util/dnd';
 
-const MainPage = ({ lists = [] }) => {
+//povezi komponentu vjerovatno
+const MainPage = ({ lists = [], reorderCards, moveCard }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [background, setBackground] = useState({
     color: grayColor,
@@ -29,9 +32,18 @@ const MainPage = ({ lists = [] }) => {
     <MainPageWrapper {...background} showSidebar={showSidebar}>
       <HeaderBar handleSidebar={handleSidebar} />
       <ListsWrapper>
-        {lists.map((list, index) => {
-          return <List name={list.name} cards={list.cards} key={list._id} />;
-        })}
+        <DragDropContext onDragEnd={reorderCards}>
+          {lists.map((list, index) => {
+            return (
+              <List
+                name={list.name}
+                cards={list.cards}
+                key={list._id}
+                listId={list._id}
+              />
+            );
+          })}
+        </DragDropContext>
         <AddAnotherList />
         <SidebarWrapper showSidebar={showSidebar}>
           <Sidebar
@@ -76,7 +88,8 @@ const SidebarWrapper = styled.div`
   position: absolute;
   right: 10px;
   top: 0px;
-  transform: ${(props) => (props.showSidebar ? 'translateX(0px)' : 'translateX(350px)')};
+  transform: ${(props) =>
+    props.showSidebar ? 'translateX(0px)' : 'translateX(350px)'};
   transition: transform 0.4s linear;
 `;
 

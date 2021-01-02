@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Statuses from '../Statuses';
 import LabelList from '../LabelList';
 
-//potencijalno samo ID ubaci, a iz contexta pokupi sta trebas
 const Card = ({ labels, name, progressStatus, descriptionStatus, dueDate }) => (
   <CardWrapper>
     {labels ? <LabelList labels={labels} /> : null}

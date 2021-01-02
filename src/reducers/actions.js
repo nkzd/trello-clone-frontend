@@ -25,6 +25,14 @@ export const requestListsSuccess = (payload) => {
   };
 };
 
+export const REORDER_CARDS = 'REORDER_CARDS';
+export const reorderCards = (payload) => {
+  return {
+    type: REORDER_CARDS,
+    payload,
+  };
+};
+
 export function fetchPosts() {
   return function (dispatch) {
     dispatch(requestLists());
