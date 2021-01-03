@@ -11,7 +11,7 @@ const List = ({ name, cards = [], listId }) => {
       <Droppable droppableId={listId}>
         {(provided, snapshot) => (
           <div
-            style={{ minHeight: '30px', minWidth: '200px', border: "1px solid red" }}
+            style={{ minHeight: '30px', minWidth: '200px' }}
             ref={provided.innerRef}
             {...provided.droppableProps}
             // style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
