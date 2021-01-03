@@ -50,7 +50,6 @@ const lists = (
 
         return { ...state, items: listsCopy };
       } else {
-        debugger;
         const result = move(
           listsCopy[sourceListIndex].cards,
           listsCopy[destinationListIndex].cards,

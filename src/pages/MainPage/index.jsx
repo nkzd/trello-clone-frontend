@@ -6,7 +6,6 @@ import AddAnotherList from '../../components/AddAnotherList';
 import Sidebar from '../../components/Sidebar';
 import { grayColor } from '../../util/constants';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { reorder, move } from '../../util/dnd';
 
 //povezi komponentu vjerovatno
 const MainPage = ({ lists = [], reorderCards, moveCard }) => {
