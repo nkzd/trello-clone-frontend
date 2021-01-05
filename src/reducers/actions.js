@@ -48,6 +48,29 @@ export const addCardSuccess = (payload) => {
   };
 };
 
+export const ADD_LIST_REQUEST = 'ADD_LIST_REQUEST';
+export const addListRequest = () => {
+  return {
+    type: ADD_LIST_REQUEST,
+  };
+};
+
+export const ADD_LIST_FAILURE = 'ADD_LIST_FAILURE';
+export const addListFailure = (error) => {
+  return {
+    type: ADD_LIST_FAILURE,
+    error,
+  };
+};
+
+export const ADD_LIST_SUCCESS = 'ADD_LIST_SUCCESS';
+export const addListSuccess = (payload) => {
+  return {
+    type: ADD_LIST_SUCCESS,
+    payload,
+  };
+};
+
 export const REORDER_CARDS = 'REORDER_CARDS';
 export const reorderCards = (payload) => {
   return {
@@ -69,6 +92,22 @@ export function addCard({ listId, name }) {
       });
   };
 }
+
+
+export function addList(name) {
+  return (dispatch) => {
+    dispatch(addListRequest());
+    const list = { name: name };
+    return axios
+      .post(`/list/`, list)
+      .then(({data}) => dispatch(addListSuccess(data)))
+      .catch((error) => {
+        console.log(error)
+        dispatch(addListFailure(error));
+      });
+  };
+}
+
 
 export function fetchPosts() {
   return function (dispatch) {

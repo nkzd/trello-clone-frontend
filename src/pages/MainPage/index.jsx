@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import HeaderBar from '../../components/HeaderBar';
 import List from '../../components/List';
-import AddAnotherList from '../../components/AddAnotherList';
+import AddAnotherList from '../../containers/AddAnotherList';
 import Sidebar from '../../components/Sidebar';
 import { grayColor } from '../../util/constants';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 //povezi komponentu vjerovatno
-const MainPage = ({ lists = [], reorderCards, moveCard }) => {
+const MainPage = ({ lists = [], reorderCards }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [background, setBackground] = useState({
     color: grayColor,

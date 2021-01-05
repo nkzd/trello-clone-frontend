@@ -5,10 +5,12 @@ const {
   REQUEST_LISTS_FAILURE,
   REQUEST_LISTS_SUCCESS,
   REORDER_CARDS,
-  MOVE_CARD,
   ADD_CARD_REQUEST,
   ADD_CARD_FAILURE,
   ADD_CARD_SUCCESS,
+  ADD_LIST_SUCCESS,
+  ADD_LIST_REQUEST,
+  ADD_LIST_FAILURE,
 } = require('./actions');
 
 const lists = (
@@ -77,6 +79,16 @@ const lists = (
       return { ...state, isFetching: false, items: listsCopy };
     }
     case ADD_CARD_FAILURE:
+      return { ...state, isFetching: false };
+
+    case ADD_LIST_REQUEST:
+      return { ...state, isFetching: true };
+
+    case ADD_LIST_SUCCESS: {
+      const list = action.payload;
+      return { ...state, isFetching: false, items: [...state.items, list] };
+    }
+    case ADD_LIST_FAILURE:
       return { ...state, isFetching: false };
     default:
       return state;

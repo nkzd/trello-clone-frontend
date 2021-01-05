@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Plus } from '@styled-icons/boxicons-regular/Plus';
 import AddButton from '../AddButton';
 import XButton from '../XButton';
-const AddAnotherList = () => {
+const AddAnotherList = ({addList}) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
@@ -15,19 +15,23 @@ const AddAnotherList = () => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addList(inputValue);
+    setInputValue('');
+    setEnableForm(false);
   };
 
   return enableForm ? (
     <FormWrapper>
-      <form>
+      <form onSubmit={handleSubmit}>
         <StyledInput
           type='text'
           value={inputValue}
           onChange={handleInputChange}
         />
         <div>
-          <AddButton text='Add List' onClick={handleSubmit} />
+          <AddButton text='Add List' />
           <XButton onClick={handleListClick} />
         </div>
       </form>
