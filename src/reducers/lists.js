@@ -11,6 +11,9 @@ const {
   ADD_LIST_SUCCESS,
   ADD_LIST_REQUEST,
   ADD_LIST_FAILURE,
+  DELETE_LIST_REQUEST,
+  DELETE_LIST_SUCCESS,
+  DELETE_LIST_FAILURE,
 } = require('./actions');
 
 const lists = (
@@ -89,6 +92,17 @@ const lists = (
       return { ...state, isFetching: false, items: [...state.items, list] };
     }
     case ADD_LIST_FAILURE:
+      return { ...state, isFetching: false };
+
+    case DELETE_LIST_REQUEST:
+      return { ...state, isFetching: true };
+
+    case DELETE_LIST_SUCCESS: {
+      const listId = action.payload;
+      const listsCopy = [...state.items];
+      return { ...state, isFetching: false, items: listsCopy.filter((list) => list._id !== listId) };
+    }
+    case DELETE_LIST_FAILURE:
       return { ...state, isFetching: false };
     default:
       return state;

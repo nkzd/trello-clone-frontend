@@ -71,6 +71,30 @@ export const addListSuccess = (payload) => {
   };
 };
 
+export const DELETE_LIST_REQUEST = 'DELETE_LIST_REQUEST';
+export const deleteListRequest = () => {
+  return {
+    type: DELETE_LIST_REQUEST,
+  };
+};
+
+export const DELETE_LIST_FAILURE = 'DELETE_LIST_FAILURE';
+export const deleteListFailure = (error) => {
+  return {
+    type: DELETE_LIST_FAILURE,
+    error,
+  };
+};
+
+export const DELETE_LIST_SUCCESS = 'DELETE_LIST_SUCCESS';
+export const deleteListSuccess = (payload) => {
+  return {
+    type: DELETE_LIST_SUCCESS,
+    payload,
+  };
+};
+
+
 export const REORDER_CARDS = 'REORDER_CARDS';
 export const reorderCards = (payload) => {
   return {
@@ -104,6 +128,19 @@ export function addList(name) {
       .catch((error) => {
         console.log(error)
         dispatch(addListFailure(error));
+      });
+  };
+}
+
+export function deleteList(listId) {
+  return (dispatch) => {
+    dispatch(deleteListRequest());
+    return axios
+      .delete(`/list/${listId}`)
+      .then(() => dispatch(deleteListSuccess(listId)))
+      .catch((error) => {
+        console.log(error)
+        dispatch(deleteListFailure(error));
       });
   };
 }

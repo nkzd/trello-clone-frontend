@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AddButton from '../AddButton';
 import XButton from '../XButton';
 
-const ListFooter = ({ listId, addCard }) => {
+const ListFooter = ({ listId, addCard, deleteList }) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
@@ -23,6 +23,10 @@ const ListFooter = ({ listId, addCard }) => {
     setInputValue('');
     setEnableForm(false);
   };
+
+  const handleDeleteListClick = () => {
+    deleteList(listId);
+  }
 
   return enableForm ? (
     <FormWrapper>
@@ -44,7 +48,7 @@ const ListFooter = ({ listId, addCard }) => {
         <PlusIcon size={20} />
         <span>Add another card</span>
       </AddAnotherCardWrapper>
-      <XButton />
+      <XButton onClick={handleDeleteListClick} />
     </ListFooterWrapper>
   );
 };
