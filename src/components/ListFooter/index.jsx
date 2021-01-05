@@ -39,9 +39,12 @@ const ListFooter = ({ listId, addCard }) => {
       </form>
     </FormWrapper>
   ) : (
-    <ListFooterWrapper onClick={handleCardClick}>
-      <PlusIcon size={20} />
-      <span>Add another card</span>
+    <ListFooterWrapper>
+      <AddAnotherCardWrapper onClick={handleCardClick}>
+        <PlusIcon size={20} />
+        <span>Add another card</span>
+      </AddAnotherCardWrapper>
+      <XButton />
     </ListFooterWrapper>
   );
 };
@@ -69,7 +72,7 @@ const StyledInput = styled.input`
   margin-bottom: 5px;
 `;
 
-const ListFooterWrapper = styled.div`
+const AddAnotherCardWrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
@@ -79,6 +82,13 @@ const ListFooterWrapper = styled.div`
   &:hover {
     background-color: rgba(9, 30, 66, 0.08);
   }
+`;
+
+const ListFooterWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 256px;
 `;
 
 export default ListFooter;
