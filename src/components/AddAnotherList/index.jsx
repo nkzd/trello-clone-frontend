@@ -61,6 +61,7 @@ const AddAnotherListWrapper = styled.div`
     background-color: hsla(0, 0%, 100%, 0.44);
   }
   cursor: pointer;
+  white-space: nowrap;
 `;
 
 const FormWrapper = styled.div`
