@@ -2,7 +2,7 @@ import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import Card from '../Card';
-import ListFooter from '../ListFooter';
+import ListFooter from '../../containers/ListFooter';
 
 const List = ({ name, cards = [], listId }) => {
   return (
@@ -39,7 +39,7 @@ const List = ({ name, cards = [], listId }) => {
           </div>
         )}
       </Droppable>
-      <ListFooter />
+      <ListFooter listId={listId}/>
     </ListWrapper>
   );
 };

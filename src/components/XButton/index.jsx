@@ -8,6 +8,7 @@ const XButton = styled(X)`
   &:hover {
     color: #172b4d;
   }
+  cursor: pointer;
 `;
 
 export default XButton;

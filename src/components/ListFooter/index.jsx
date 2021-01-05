@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AddButton from '../AddButton';
 import XButton from '../XButton';
 
-const ListFooter = () => {
+const ListFooter = ({ listId, addCard }) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
@@ -17,18 +17,23 @@ const ListFooter = () => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addCard({ listId, name: inputValue });
+    setInputValue('');
+    setEnableForm(false);
+  };
 
   return enableForm ? (
     <FormWrapper>
-      <form>
+      <form onSubmit={handleSubmit}>
         <StyledInput
           type='text'
           value={inputValue}
           onChange={handleInputChange}
         />
         <div>
-          <AddButton text='Add Card' onClick={handleSubmit} />
+          <AddButton text='Add Card' />
           <XButton onClick={handleCardClick} />
         </div>
       </form>

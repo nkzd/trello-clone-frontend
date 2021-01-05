@@ -6,6 +6,9 @@ const {
   REQUEST_LISTS_SUCCESS,
   REORDER_CARDS,
   MOVE_CARD,
+  ADD_CARD_REQUEST,
+  ADD_CARD_FAILURE,
+  ADD_CARD_SUCCESS,
 } = require('./actions');
 
 const lists = (
@@ -22,7 +25,7 @@ const lists = (
       return { ...state, isFetching: false };
     case REQUEST_LISTS_SUCCESS:
       return { ...state, isFetching: false, items: action.payload.data };
-    case REORDER_CARDS:
+    case REORDER_CARDS: {
       const { source, destination } = action.payload;
 
       if (!destination) {
@@ -62,6 +65,19 @@ const lists = (
 
         return { ...state, items: listsCopy };
       }
+    }
+    case ADD_CARD_REQUEST:
+      return { ...state, isFetching: true };
+
+    case ADD_CARD_SUCCESS: {
+      const { listId, card } = action.payload;
+      const listsCopy = [...state.items];
+      const listIndex = state.items.findIndex((list) => list._id === listId);
+      listsCopy[listIndex].cards = [...listsCopy[listIndex].cards, card];
+      return { ...state, isFetching: false, items: listsCopy };
+    }
+    case ADD_CARD_FAILURE:
+      return { ...state, isFetching: false };
     default:
       return state;
   }
