@@ -4,20 +4,30 @@ import Label from '../Label';
 
 const ModalLabelList = ({ labels }) => {
   return (
-    <LabelListWrapper >
-      {labels.map((label, index) => {
-        return (
-          <Label
-            key={index}
-            color={label.color}
-            name={label.name}
-            expand={true}
-          />
-        );
-      })}
-    </LabelListWrapper>
+    <ModalLabelListWrapper>
+      <p>LABEL LIST</p>
+      <LabelListWrapper>
+        {labels.map((label, index) => {
+          return (
+            <Label
+              key={index}
+              color={label.color}
+              name={label.name}
+              expand={true}
+            />
+          );
+        })}
+      </LabelListWrapper>
+    </ModalLabelListWrapper>
   );
 };
+
+const ModalLabelListWrapper = styled.div`
+  p {
+    color: #5e6c84;
+    font-size: 12px;
+  }
+`;
 
 const LabelListWrapper = styled.div`
   display: flex;
