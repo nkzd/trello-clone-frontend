@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { PurchaseTagAlt } from '@styled-icons/boxicons-regular/PurchaseTagAlt';
 import { Clock } from '@styled-icons/bootstrap/Clock';
 import { Check } from '@styled-icons/boxicons-regular/Check';
