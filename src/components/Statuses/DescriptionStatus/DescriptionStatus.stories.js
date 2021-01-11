@@ -2,7 +2,7 @@ import React from 'react';
 import DescriptionStatus from './index';
 
 export default {
-  title: 'DescriptionStatus',
+  title: 'Statuses/DescriptionStatus',
   component: DescriptionStatus,
   argTypes: {
     color: { control: 'color' },

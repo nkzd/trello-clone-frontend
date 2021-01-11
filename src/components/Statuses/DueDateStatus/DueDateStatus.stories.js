@@ -2,7 +2,7 @@ import React from 'react';
 import DueDateStatus from './index';
 
 export default {
-  title: 'DueDateStatus',
+  title: 'Statuses/DueDateStatus',
   component: DueDateStatus,
   argTypes: {
     color: { control: 'color' },

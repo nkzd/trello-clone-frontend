@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import DescriptionStatus from '../DescriptionStatus';
-import DueDateStatus from '../DueDateStatus';
-import ProgressStatus from '../ProgressStatus';
+import DescriptionStatus from './DescriptionStatus';
+import DueDateStatus from './DueDateStatus';
+import ProgressStatus from './ProgressStatus';
 
 const Statuses = ({ descriptionStatus, dueDate, progressStatus }) => {
   return (

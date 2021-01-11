@@ -2,7 +2,7 @@ import React from 'react';
 import ProgressStatus from './index';
 
 export default {
-  title: 'ProgressStatus',
+  title: 'Statuses/ProgressStatus',
   component: ProgressStatus,
   argTypes: {
     progressStatus: {
