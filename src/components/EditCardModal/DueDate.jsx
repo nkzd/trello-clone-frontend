@@ -1,5 +1,5 @@
 import React from 'react';
-import DueDateStatus from '../DueDateStatus';
+import DueDateStatus from '../Statuses/DueDateStatus';
 import styled from 'styled-components';
 const DueDate = ({ dueDate }) => {
   return (
