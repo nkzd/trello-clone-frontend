@@ -1,7 +1,7 @@
 import React from 'react';
 import DueDateStatus from '../Statuses/DueDateStatus';
 import styled from 'styled-components';
-const DueDate = ({ dueDate }) => {
+const ModalDueDate = ({ dueDate }) => {
   return (
     <DueDateWrapper>
       <p>DUE DATE</p>
@@ -17,4 +17,4 @@ const DueDateWrapper = styled.div`
   }
 `;
 
-export default DueDate;
+export default ModalDueDate;

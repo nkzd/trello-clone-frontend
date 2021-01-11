@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Names = ({ cardName, listName }) => {
+const ModalNames = ({ cardName, listName }) => {
   return (
     <NamesWrapper>
       <CardNameWrapper>{cardName}</CardNameWrapper>
@@ -26,4 +26,4 @@ const ListNameWrapper = styled.div`
   font-weight: 400;
 `;
 
-export default Names;
+export default ModalNames;
