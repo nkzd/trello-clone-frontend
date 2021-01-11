@@ -1,10 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import Names from '../../components/EditCardModal/Names';
 import DeleteButton from '../../components/EditCardModal/DeleteButton';
 import DueDate from '../../components/EditCardModal/DueDate';
-import styled from 'styled-components';
 import ModalProgressStatus from '../../components/EditCardModal/ModalProgressStatus';
 import ModalLabelList from '../../components/EditCardModal/ModalLabelList';
+import ModalSidebar from '../../components/EditCardModal/ModalSidebar';
 
 const EditCardModal = ({
   listName,
@@ -22,7 +23,7 @@ const EditCardModal = ({
         <ModalLabelList labels={labels} />
         <DeleteButton text='Delete Card' />
       </div>
-      <div>x</div>
+      <ModalSidebar />
     </EditCardModalWrapper>
   );
 };

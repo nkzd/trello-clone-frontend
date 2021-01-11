@@ -5,20 +5,30 @@ import AddToCard from './AddToCard';
 const ModalSidebar = () => {
   return (
     <ModalSidebarWrapper>
-      <AddToCard type='description' />
-      <AddToCard type='duedate' />
-      <AddToCard type='progress' />
-      <AddToCard type='labels' />
+      <p>ADD TO CARD</p>
+      <AddToWrapper>
+        <AddToCard type='description' />
+        <AddToCard type='duedate' />
+        <AddToCard type='progress' />
+        <AddToCard type='labels' />
+      </AddToWrapper>
     </ModalSidebarWrapper>
   );
 };
 
-const ModalSidebarWrapper = styled.div`
+const AddToWrapper = styled.div`
   & > * {
     margin-top: 5px;
   }
   & > *:first-child {
     margin-top: 0px;
+  }
+`;
+const ModalSidebarWrapper = styled.div`
+  p {
+    color: #5e6c84;
+    font-size: 12px;
+    font-weight: 500;
   }
 `;
 
