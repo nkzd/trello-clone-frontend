@@ -5,7 +5,7 @@ const ModalDueDate = ({ dueDate }) => {
   return (
     <DueDateWrapper>
       <p>DUE DATE</p>
-      <DueDateStatus unixTimestamp={dueDate} />
+      <DueDateStatus timestamp={dueDate} />
     </DueDateWrapper>
   );
 };

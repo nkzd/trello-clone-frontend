@@ -15,12 +15,12 @@ export const Gray = Template.bind({});
 Gray.args = {
   size: '18',
   color: '#AAAAAA',
-  unixTimestamp: '1603651162',
+  timestamp: '1603651162000',
 };
 
 export const Silver = Template.bind({});
 Silver.args = {
   size: '18',
   color: '#DDDDDD',
-  unixTimestamp: '1603651162',
+  timestamp: '1603651162000',
 };

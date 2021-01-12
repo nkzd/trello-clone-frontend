@@ -8,7 +8,7 @@ const Statuses = ({ descriptionStatus, dueDate, progressStatus }) => {
   return (
     <StatusesWrapper>
       {descriptionStatus ? <DescriptionStatus /> : null}
-      {dueDate ? <DueDateStatus unixTimestamp={dueDate} /> : null}
+      {dueDate ? <DueDateStatus timestamp={dueDate} /> : null}
       {progressStatus ? (
         <ProgressStatus progressStatus={progressStatus} />
       ) : null}
