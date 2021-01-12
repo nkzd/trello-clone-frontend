@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const DeleteButton = ({ text }) => {
-  return <StyledButton>{text}</StyledButton>;
+const RectangularButton = ({ text, color }) => {
+  return <StyledButton color={color}>{text}</StyledButton>;
 };
 
 const StyledButton = styled.button`
-  background-color: #cc0033;
+  background-color: ${(props) => (props.color ? props.color : '#5aac44')};
   border: none;
   border-radius: 5px;
   color: white;
@@ -23,4 +23,4 @@ const StyledButton = styled.button`
   }
 `;
 
-export default DeleteButton;
+export default RectangularButton;

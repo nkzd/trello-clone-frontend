@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Plus } from '@styled-icons/boxicons-regular/Plus';
-import AddButton from '../AddButton';
 import XButton from '../XButton';
-const AddAnotherList = ({addList}) => {
+import RectangularButton from '../RectanguralButton';
+const AddAnotherList = ({ addList }) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
@@ -31,7 +31,7 @@ const AddAnotherList = ({addList}) => {
           onChange={handleInputChange}
         />
         <div>
-          <AddButton text='Add List' />
+          <RectangularButton text='Add List' color='#5aac44' />
           <XButton onClick={handleListClick} />
         </div>
       </form>

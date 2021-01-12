@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Plus } from '@styled-icons/boxicons-regular/Plus';
 import { useState } from 'react';
-import AddButton from '../AddButton';
 import XButton from '../XButton';
+import RectangularButton from '../RectanguralButton';
 
 const ListFooter = ({ listId, addCard, deleteList }) => {
   const [enableForm, setEnableForm] = useState(false);
@@ -26,7 +26,7 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
 
   const handleDeleteListClick = () => {
     deleteList(listId);
-  }
+  };
 
   return enableForm ? (
     <FormWrapper>
@@ -37,7 +37,7 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
           onChange={handleInputChange}
         />
         <div>
-          <AddButton text='Add Card' />
+          <RectangularButton text='Add List' color='#5aac44' />
           <XButton onClick={handleCardClick} />
         </div>
       </form>
