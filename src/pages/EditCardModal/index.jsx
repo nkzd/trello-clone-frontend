@@ -20,10 +20,14 @@ const EditCardModal = ({
     <EditCardModalWrapper>
       <ParagraphWrapper>
         <ModalNames listName={listName} cardName={cardName} />
-        <ModalDescription description={description} />
-        <ModalDueDate dueDate={dueDate} />
-        <ModalProgressStatus progressStatus={progressStatus} />
-        <ModalLabelList labels={labels} />
+        {description ? <ModalDescription description={description} /> : null}
+        {dueDate ? <ModalDueDate dueDate={dueDate} /> : null}
+        {progressStatus ? (
+          <ModalProgressStatus progressStatus={progressStatus} />
+        ) : null}
+        {labels && labels.length !== 0 ? (
+          <ModalLabelList labels={labels} />
+        ) : null}
         <DeleteButton text='Delete Card' />
       </ParagraphWrapper>
       <ModalSidebar />
@@ -41,6 +45,9 @@ const EditCardModalWrapper = styled.div`
 const ParagraphWrapper = styled.div`
   & > * {
     padding: 5px;
+  }
+  & > *:last-child {
+    margin-top: 20px;
   }
 `;
 
