@@ -12,15 +12,14 @@ const DueDateStatus = ({ color = '#616161', size = 18, timestamp }) => {
   };
 
   return (
-    <DueDateStatusWrapper>
+    <span>
       <ClockIcon color={color} size={size} />
       <DueDateStatusText color={color} size={size}>
         {convertTimestampToMMdd(timestamp)}
       </DueDateStatusText>
-    </DueDateStatusWrapper>
+    </span>
   );
 };
-const DueDateStatusWrapper = styled.span``;
 const ClockIcon = styled(Clock)`
   color: ${(props) => props.color};
 `;
