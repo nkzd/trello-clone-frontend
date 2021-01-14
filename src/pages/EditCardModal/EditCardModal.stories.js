@@ -2,7 +2,7 @@ import React from 'react';
 import EditCardModal from './index';
 
 export default {
-  title: 'EditCardModal',
+  title: 'Modal/EditCardModal',
   component: EditCardModal,
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import AddToCard from './AddToCard';
 
 export default {
-  title: 'AddToCard',
+  title: 'Modal/AddToCard',
   component: AddToCard,
 };
 

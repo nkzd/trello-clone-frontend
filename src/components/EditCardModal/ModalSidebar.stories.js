@@ -2,7 +2,7 @@ import React from 'react';
 import ModalSidebar from './ModalSidebar';
 
 export default {
-  title: 'ModalSidebar',
+  title: 'Modal/ModalSidebar',
   component: ModalSidebar,
 };
 
