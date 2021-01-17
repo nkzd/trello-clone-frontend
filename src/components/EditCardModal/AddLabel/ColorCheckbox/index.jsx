@@ -2,16 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Check } from '@styled-icons/boxicons-regular/Check';
 
-const ColorCheckbox = ({ color }) => {
-  const [checked, setChecked] = useState(false);
-
+const ColorCheckbox = ({ color, checked, onClick }) => {
   return (
-    <SolidColorWrapper
-      color={color}
-      onClick={() => {
-        setChecked(true);
-      }}
-    >
+    <SolidColorWrapper color={color} onClick={onClick}>
       {checked ? <StyledCheck size={20} /> : null}
     </SolidColorWrapper>
   );

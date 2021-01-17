@@ -106,13 +106,13 @@ const RadioWrapper = styled.div`
 const FormWrapper = styled.div`
   font-family: Helvetica, Arial, sans-serif;
   border-radius: 5px;
-  ${XButton} {
-    margin-left: 5px;
-  }
 `;
 
 const FooterWrapper = styled.div`
   padding: 5px;
+  ${XButton} {
+    margin-left: 5px;
+  }
 `;
 
 export default AddProgress;
