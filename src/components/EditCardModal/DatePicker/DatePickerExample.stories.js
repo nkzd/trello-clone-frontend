@@ -8,4 +8,7 @@ export default {
 
 const Template = (args) => <DatePicker {...args} />;
 
-export const Primary = Template.bind({});
+export const Default = Template.bind({});
+Default.args = {
+  closePopup: () => {},
+};

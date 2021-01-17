@@ -8,6 +8,7 @@ import DatePicker from './DatePicker';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AddDescription from './AddDescription';
+import AddProgress from './AddProgress';
 
 const AddToCard = ({ type }) => {
   const renderSwitch = (type) => {
@@ -42,10 +43,22 @@ const AddToCard = ({ type }) => {
       }
       case 'progress': {
         return (
-          <IconWrapper>
-            <Check size={14} />
-            <span>PROGRESS STATUS</span>
-          </IconWrapper>
+          <StyledPopup
+            arrow={false}
+            trigger={
+              <IconWrapper>
+                <Check size={14} />
+                <span>PROGRESS STATUS</span>
+              </IconWrapper>
+            }
+            position='bottom'
+          >
+            {(close) => (
+              <div>
+                <AddProgress closePopup={close} />
+              </div>
+            )}
+          </StyledPopup>
         );
       }
       case 'description': {
@@ -101,10 +114,7 @@ const IconWrapper = styled.div`
 const StyledPopup = styled(Popup)`
   &-content {
     user-select: none;
-  }
-
-  [role='tooltip'].popup-content {
-    width: auto;
+    width: auto !important;
   }
 `;
 

@@ -3,7 +3,7 @@ import EditCard from './index';
 
 export default {
   title: 'EditCard',
-  component: EditCard
+  component: EditCard,
 };
 
 const Template = (args) => <EditCard {...args} />;
