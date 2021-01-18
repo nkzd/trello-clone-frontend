@@ -12,18 +12,18 @@ const ColorCheckbox = ({ color, checked, onClick }) => {
 
 const SolidColorWrapper = styled.div`
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 32px;
   border-radius: 5px;
   background-color: ${(props) => props.color};
   margin: 0 8px 8px 0;
+
   &:hover {
     filter: brightness(85%);
   }
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const StyledCheck = styled(Check)`
