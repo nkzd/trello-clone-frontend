@@ -1,28 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { EditAlt } from '@styled-icons/boxicons-regular/EditAlt';
+import { X } from '@styled-icons/boxicons-regular/X';
 
-const EditCard = () => (
+const DeleteLabelIcon = () => (
   <Wrapper>
-    <EditIcon />
+    <DeleteIcon />
   </Wrapper>
 );
 
-const EditIcon = styled(EditAlt)`
+const DeleteIcon = styled(X)`
   color: #9e9e9e;
 `;
 
 const Wrapper = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 5px;
   background-color: white;
   &:hover {
     background-color: #EEEEEE;
   }
-  &:hover ${EditIcon} {
+  &:hover ${DeleteIcon} {
     color: #616161;
   }
 `;
 
-export default EditCard;
+export default DeleteLabelIcon;
