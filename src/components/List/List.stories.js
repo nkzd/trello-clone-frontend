@@ -2,11 +2,13 @@ import React from 'react';
 import List from './index';
 import Card from '../Card/'
 import { Three, Two, One } from '../Card/Card.stories.js';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 
 export default {
   title: 'List',
   component: List,
+  decorators: [(Story) => <DragDropContext><Story/></DragDropContext>]
 };
 
 const Template = (args) => (
