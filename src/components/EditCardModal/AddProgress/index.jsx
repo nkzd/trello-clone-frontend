@@ -29,8 +29,8 @@ const AddProgress = ({ closePopup }) => {
             value='Not Started'
             checked={selectedValue === 'Not Started'}
             name='progress'
-            onChange={handleChange}
             id='Not Started'
+            onChange={handleChange}
           />
           <label htmlFor='Not Started'>Not Started</label>
           <ProgressStatus progressStatus='Not Started' />
@@ -41,6 +41,7 @@ const AddProgress = ({ closePopup }) => {
             value='In-Progress'
             checked={selectedValue === 'In-Progress'}
             name='progress'
+            id='In-Progress'
             onChange={handleChange}
           />
           <label htmlFor='In-Progress'>In-Progress</label>
@@ -52,6 +53,7 @@ const AddProgress = ({ closePopup }) => {
             value='On-Hold'
             checked={selectedValue === 'On-Hold'}
             name='progress'
+            id='On-Hold'
             onChange={handleChange}
           />
 
@@ -64,6 +66,7 @@ const AddProgress = ({ closePopup }) => {
             value='Cancelled'
             checked={selectedValue === 'Cancelled'}
             name='progress'
+            id='Cancelled'
             onChange={handleChange}
           />
           <label htmlFor='Cancelled'>Cancelled</label>
@@ -75,6 +78,7 @@ const AddProgress = ({ closePopup }) => {
             value='Complete'
             checked={selectedValue === 'Complete'}
             name='progress'
+            id='Complete'
             onChange={handleChange}
           />
           <label htmlFor='Complete'>Complete</label>
