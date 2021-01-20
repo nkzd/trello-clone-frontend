@@ -12,14 +12,14 @@ const LabelList = ({ labels, allLabels }) => {
     <LabelListWrapper onClick={handleExpand}>
       {labels.map((labelId) => {
         const resultLabel = allLabels.find((label) => label._id === labelId);
-        return (
+        return resultLabel ? (
           <Label
             key={resultLabel._id}
             color={resultLabel.color}
             name={resultLabel.name}
             expand={expand}
           />
-        );
+        ) : null;
       })}
     </LabelListWrapper>
   );

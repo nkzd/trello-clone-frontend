@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
 import './index.css';
 import MainPage from './containers/MainPage';
-import { fetchPosts } from './reducers/actions';
+import { fetchLists, fetchLabels } from './reducers/actions';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -15,7 +15,8 @@ const store = createStore(
 
 const App = () => {
   useEffect(() => {
-    store.dispatch(fetchPosts());
+    store.dispatch(fetchLabels());
+    store.dispatch(fetchLists());
   }, []);
 
   return (
