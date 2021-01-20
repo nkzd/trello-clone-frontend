@@ -57,7 +57,7 @@ Three.args = {
   _id: '5f788feba88e353396e54dc3',
   name: 'With labels',
   labels: [1, 2, 3, 4, 5],
-  descriptionStatus: true,
+  description: 'Lorem ipsum description',
   dueDate: '1603651162',
   progressStatus: 'Not Started',
 };
@@ -67,7 +67,7 @@ Four.args = {
   _id: '5f788feba88e353396e54dc4',
   name: 'With labels',
   labels: [1, 2, 3, 4, 5],
-  descriptionStatus: true,
+  description: 'Lorem ipsum description',
   dueDate: '1603651162',
   progressStatus: 'Not Started',
 };

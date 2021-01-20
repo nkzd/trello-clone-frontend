@@ -5,15 +5,15 @@ export default {
   title: 'Statuses',
   component: Statuses,
   argTypes: {
-    descriptionStatus: {
+    description: {
       control: {
-        type: 'boolean'
-      }
+        type: 'text',
+      },
     },
     dueDate: {
       control: {
-        type: 'text'
-      }
+        type: 'text',
+      },
     },
     progressStatus: {
       control: {
@@ -35,18 +35,18 @@ const Template = (args) => <Statuses {...args} />;
 
 export const One = Template.bind({});
 One.args = {
-  descriptionStatus : true
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 };
 
 export const Two = Template.bind({});
 Two.args = {
-  descriptionStatus : true,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   dueDate: '1603651162',
 };
 
 export const Three = Template.bind({});
 Three.args = {
-  descriptionStatus : true,
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   dueDate: '1603651162',
-  progressStatus: 'Not Started'
+  progressStatus: 'Not Started',
 };

@@ -4,10 +4,10 @@ import DescriptionStatus from './DescriptionStatus';
 import DueDateStatus from './DueDateStatus';
 import ProgressStatus from './ProgressStatus';
 
-const Statuses = ({ descriptionStatus, dueDate, progressStatus }) => {
+const Statuses = ({ description, dueDate, progressStatus }) => {
   return (
     <StatusesWrapper>
-      {descriptionStatus ? <DescriptionStatus /> : null}
+      {description ? <DescriptionStatus /> : null}
       {dueDate ? <DueDateStatus timestamp={dueDate} /> : null}
       {progressStatus ? (
         <ProgressStatus progressStatus={progressStatus} />

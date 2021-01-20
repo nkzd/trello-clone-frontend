@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import Statuses from '../Statuses';
 import LabelList from '../../containers/LabelList';
 
-const Card = ({ labels, name, progressStatus, descriptionStatus, dueDate }) => (
+const Card = ({ labels, name, progressStatus, description, dueDate }) => (
   <CardWrapper>
     {labels ? <LabelList labels={labels} /> : null}
     <NameWrapper>{name}</NameWrapper>
     <Statuses
-      descriptionStatus={descriptionStatus}
+      description={description}
       progressStatus={progressStatus}
       dueDate={dueDate}
     />
