@@ -1,10 +1,40 @@
 import React from 'react';
 import Card from './index';
-
+import { Provider } from 'react-redux';
+import { action } from '@storybook/addon-actions';
+// A super-simple mock of a redux store
+const store = {
+  getState: () => {
+    return {
+      labels: {
+        items: [
+          { _id: 1, name: 'Whatever', color: 'lightcoral' },
+          { _id: 2, name: 'A', color: 'lightblue' },
+          { _id: 3, color: 'lightgreen' },
+          {
+            _id: 4,
+            name: 'quick brown fox jumps over a lazy dog',
+            color: 'lightgray',
+          },
+          { _id: 5, name: 'bo problemo', color: 'lightpink' },
+        ],
+        isFetching: false,
+      },
+    };
+  },
+  subscribe: () => 0,
+  dispatch: action('dispatch'),
+};
 export default {
   title: 'Card',
   component: Card,
-  decorators: [(Story) => <div style={{ margin: '5em' }}><Story/></div>],
+  decorators: [
+    (Story) => (
+      <div style={{ margin: '5em' }}>
+        <Provider store={store}>{<Story />}</Provider>
+      </div>
+    ),
+  ],
 };
 
 const Template = (args) => <Card {...args} />;
@@ -12,50 +42,32 @@ const Template = (args) => <Card {...args} />;
 export const One = Template.bind({});
 One.args = {
   _id: '5f788feba88e353396e55ec1',
-  name: 'Markoooo'
+  name: 'Markoooo',
 };
 
 export const Two = Template.bind({});
 Two.args = {
   _id: '5f788feba88e353396e52ec2',
   name: 'With labels',
-  labels: [
-      {name: 'Whatever', color: "lightcoral"},
-      {name: 'A', color: "lightblue"},
-      {color: "lightgreen"},
-      {name: 'quick brown fox jumps over a lazy dog', color: "lightgray"},
-      {name: 'bo problemo', color: "lightpink"},
-  ]
+  labels: [1, 2, 3, 4, 5],
 };
 
 export const Three = Template.bind({});
 Three.args = {
   _id: '5f788feba88e353396e54dc3',
   name: 'With labels',
-  labels: [
-      {name: 'Whatever', color: "lightcoral"},
-      {name: 'A', color: "lightblue"},
-      {color: "lightgreen"},
-      {name: 'quick brown fox jumps over a lazy dog', color: "lightgray"},
-      {name: 'bo problemo', color: "lightpink"},
-  ],
-  descriptionStatus : true,
+  labels: [1, 2, 3, 4, 5],
+  descriptionStatus: true,
   dueDate: '1603651162',
-  progressStatus: 'Not Started'
+  progressStatus: 'Not Started',
 };
 
 export const Four = Template.bind({});
 Four.args = {
   _id: '5f788feba88e353396e54dc4',
   name: 'With labels',
-  labels: [
-      {name: 'Test123', color: "lightcoral"},
-      {name: 'Abcd', color: "lightblue"},
-      {color: "lightgreen"},
-      {name: 'quick brown fox jumps over a lazy dog', color: "lightgray"},
-      {name: 'bo problemo', color: "lightpink"},
-  ],
-  descriptionStatus : true,
+  labels: [1, 2, 3, 4, 5],
+  descriptionStatus: true,
   dueDate: '1603651162',
-  progressStatus: 'Not Started'
+  progressStatus: 'Not Started',
 };

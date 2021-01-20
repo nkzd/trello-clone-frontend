@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Statuses from '../Statuses';
-import LabelList from '../LabelList';
+import LabelList from '../../containers/LabelList';
 
 const Card = ({ labels, name, progressStatus, descriptionStatus, dueDate }) => (
-  <CardWrapper onClick={()=>alert("hehe")}>
+  <CardWrapper>
     {labels ? <LabelList labels={labels} /> : null}
     <NameWrapper>{name}</NameWrapper>
     <Statuses
@@ -20,7 +20,7 @@ const CardWrapper = styled.div`
   width: 256px;
   padding: 8px;
   background-color: #fff;
-  &:hover { 
+  &:hover {
     background-color: rgba(255, 255, 255, 0.7);
   }
   box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);

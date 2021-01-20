@@ -11,11 +11,12 @@ const Template = (args) => <LabelList {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  labels: [
-      {name: 'Whatever', color: "lightcoral"},
-      {name: 'A', color: "lightblue"},
-      {color: "lightgreen"},
-      {name: 'quick brown fox jumps over a lazy dog', color: "lightgray"},
-      {name: 'bo problemo', color: "lightpink"},
-  ]
+  labels: [1,2,3,4,5],
+  allLabels: [
+    {_id: 1, name: 'Whatever', color: "lightcoral"},
+    {_id: 2,name: 'A', color: "lightblue"},
+    {_id: 3,color: "lightgreen"},
+    {_id: 4,name: 'quick brown fox jumps over a lazy dog', color: "lightgray"},
+    {_id: 5,name: 'bo problemo', color: "lightpink"},
+]
 };

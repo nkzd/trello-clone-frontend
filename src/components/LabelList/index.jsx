@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
-const LabelList = ({ labels }) => {
+const LabelList = ({ labels, allLabels }) => {
   const [expand, setExpand] = useState(false);
 
   const handleExpand = () => {
@@ -10,12 +10,13 @@ const LabelList = ({ labels }) => {
 
   return (
     <LabelListWrapper onClick={handleExpand}>
-      {labels.map((label, index) => {
+      {labels.map((labelId) => {
+        const resultLabel = allLabels.find((label) => label._id === labelId);
         return (
           <Label
-            key={index}
-            color={label.color}
-            name={label.name}
+            key={resultLabel._id}
+            color={resultLabel.color}
+            name={resultLabel.name}
             expand={expand}
           />
         );
@@ -31,14 +32,13 @@ const LabelListWrapper = styled.div`
   &:hover {
     filter: brightness(85%);
   }
-  
+
   & > *:last-child {
     margin-right: 0px;
   }
   & > * {
-    margin: 3px 3px 3px 0px; 
+    margin: 3px 3px 3px 0px;
   }
-  
 `;
 
 export default LabelList;
