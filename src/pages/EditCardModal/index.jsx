@@ -10,7 +10,7 @@ import RectangularButton from '../../components/RectanguralButton';
 
 const EditCardModal = ({
   listName,
-  cardName,
+  name,
   description,
   dueDate,
   progressStatus,
@@ -19,7 +19,7 @@ const EditCardModal = ({
   return (
     <EditCardModalWrapper>
       <ParagraphWrapper>
-        <ModalNames listName={listName} cardName={cardName} />
+        <ModalNames listName={listName} name={name} />
         {description ? <ModalDescription description={description} /> : null}
         {dueDate ? <ModalDueDate dueDate={dueDate} /> : null}
         {progressStatus ? (

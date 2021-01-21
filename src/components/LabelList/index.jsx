@@ -4,8 +4,9 @@ import Label from '../Label';
 const LabelList = ({ labels, allLabels }) => {
   const [expand, setExpand] = useState(false);
 
-  const handleExpand = () => {
+  const handleExpand = (event) => {
     setExpand(!expand);
+    event.stopPropagation();
   };
 
   return (

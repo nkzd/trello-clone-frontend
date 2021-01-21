@@ -32,6 +32,7 @@ const AddToCard = ({ type }) => {
               </IconWrapper>
             }
             position='bottom'
+            nested
           >
             {(close) => (
               <div>
@@ -52,6 +53,7 @@ const AddToCard = ({ type }) => {
               </IconWrapper>
             }
             position='bottom'
+            nested
           >
             {(close) => (
               <div>
@@ -72,6 +74,7 @@ const AddToCard = ({ type }) => {
               </IconWrapper>
             }
             position='bottom'
+            nested
           >
             {(close) => (
               <div>

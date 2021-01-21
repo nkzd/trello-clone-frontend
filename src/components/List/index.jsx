@@ -3,6 +3,8 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import Card from '../Card';
 import ListFooter from '../../containers/ListFooter';
+import Popup from 'reactjs-popup';
+import EditCardModal from '../../pages/EditCardModal';
 
 const List = ({ name, cards = [], listId }) => {
   return (
@@ -29,7 +31,18 @@ const List = ({ name, cards = [], listId }) => {
                       //   provided.draggableProps.style
                       // )}
                     >
-                      <Card {...card} />
+                      <Popup
+                        trigger={
+                          <div>
+                            <Card {...card} />
+                          </div>
+                        }
+                        modal={true}
+                        closeOnDocumentClick
+                        nested
+                      >
+                        <EditCardModal {...card} listName={name} />
+                      </Popup>
                     </div>
                   )}
                 </Draggable>
@@ -39,7 +52,7 @@ const List = ({ name, cards = [], listId }) => {
           </div>
         )}
       </Droppable>
-      <ListFooter listId={listId}/>
+      <ListFooter listId={listId} />
     </ListWrapper>
   );
 };

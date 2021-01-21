@@ -11,7 +11,7 @@ const Template = (args) => <EditCardModal {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   listName: 'stagod',
-  cardName: 'ma ide gas bre',
+  name: 'ma ide gas bre',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices porttitor dui et dictum. Vivamus urna tellus, pharetra ut risus et, congue venenatis risus. Nunc dapibus fringilla lacus sed vestibulum. Sed pellentesque est at magna volutpat vulputate ut a lacus.',
   dueDate: '1603651162',
   progressStatus: 'Not Started',
