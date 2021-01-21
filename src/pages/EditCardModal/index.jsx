@@ -28,9 +28,9 @@ const EditCardModal = ({
         {labels && labels.length !== 0 ? (
           <ModalLabelList labels={labels} />
         ) : null}
-        <RectangularButton text='Delete Card' color='#cc0033' />
       </ParagraphWrapper>
       <ModalSidebar />
+      <RectangularButtonWrapper><RectangularButton text='Delete Card' color='#cc0033' /></RectangularButtonWrapper>
     </EditCardModalWrapper>
   );
 };
@@ -38,6 +38,7 @@ const EditCardModal = ({
 const EditCardModalWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr minmax(150px, 25%);
+  grid-auto-rows: min-content;
   background-color: #f4f5f7;
   padding: 10px;
 `;
@@ -50,5 +51,9 @@ const ParagraphWrapper = styled.div`
     margin-top: 20px;
   }
 `;
+
+const RectangularButtonWrapper = styled.div`
+  width: 150px;
+`
 
 export default EditCardModal;

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ModalNames = ({ cardName, listName }) => {
+const ModalNames = ({ name, listName }) => {
   return (
     <NamesWrapper>
-      <CardNameWrapper>{cardName}</CardNameWrapper>
+      <CardNameWrapper>{name}</CardNameWrapper>
       <ListNameWrapper>
         in list <u>{listName}</u>
       </ListNameWrapper>
