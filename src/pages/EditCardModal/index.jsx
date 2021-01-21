@@ -10,11 +10,14 @@ import RectangularButton from '../../components/RectanguralButton';
 
 const EditCardModal = ({
   listName,
+  listId,
+  _id,
   name,
   description,
   dueDate,
   progressStatus,
   labels,
+  deleteCard,
 }) => {
   return (
     <EditCardModalWrapper>
@@ -31,7 +34,13 @@ const EditCardModal = ({
       </ParagraphWrapper>
       <ModalSidebar />
       <RectangularButtonWrapper>
-        <RectangularButton text='Delete Card' color='#cc0033' />
+        <RectangularButton
+          text='Delete Card'
+          color='#cc0033'
+          onClick={() => {
+            deleteCard({ listId: listId, cardId: _id });
+          }}
+        />
       </RectangularButtonWrapper>
     </EditCardModalWrapper>
   );

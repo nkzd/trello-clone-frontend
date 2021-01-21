@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Card from '../Card';
 import ListFooter from '../../containers/ListFooter';
 import Popup from 'reactjs-popup';
-import EditCardModal from '../../pages/EditCardModal';
+import EditCardModal from '../../containers/EditCardModal';
 
 const List = ({ name, cards = [], listId }) => {
   return (
@@ -41,7 +41,11 @@ const List = ({ name, cards = [], listId }) => {
                         closeOnDocumentClick
                         nested
                       >
-                        <EditCardModal {...card} listName={name} />
+                        <EditCardModal
+                          {...card}
+                          listName={name}
+                          listId={listId}
+                        />
                       </Popup>
                     </div>
                   )}

@@ -71,6 +71,29 @@ export const addCardSuccess = (payload) => {
   };
 };
 
+export const EDIT_CARD_REQUEST = 'EDIT_CARD_REQUEST';
+export const editCardRequest = () => {
+  return {
+    type: EDIT_CARD_REQUEST,
+  };
+};
+
+export const EDIT_CARD_FAILURE = 'EDIT_CARD_FAILURE';
+export const editCardFailure = (error) => {
+  return {
+    type: EDIT_CARD_FAILURE,
+    error,
+  };
+};
+
+export const EDIT_CARD_SUCCESS = 'EDIT_CARD_SUCCESS';
+export const editCardSuccess = (payload) => {
+  return {
+    type: EDIT_CARD_SUCCESS,
+    payload,
+  };
+};
+
 export const ADD_LIST_REQUEST = 'ADD_LIST_REQUEST';
 export const addListRequest = () => {
   return {
@@ -90,6 +113,29 @@ export const ADD_LIST_SUCCESS = 'ADD_LIST_SUCCESS';
 export const addListSuccess = (payload) => {
   return {
     type: ADD_LIST_SUCCESS,
+    payload,
+  };
+};
+
+export const DELETE_CARD_REQUEST = 'DELETE_CARD_REQUEST';
+export const deleteCardRequest = () => {
+  return {
+    type: DELETE_CARD_REQUEST,
+  };
+};
+
+export const DELETE_CARD_FAILURE = 'DELETE_CARD_FAILURE';
+export const deleteCardFailure = (error) => {
+  return {
+    type: DELETE_CARD_FAILURE,
+    error,
+  };
+};
+
+export const DELETE_CARD_SUCCESS = 'DELETE_CARD_SUCCESS';
+export const deleteCardSuccess = (payload) => {
+  return {
+    type: DELETE_CARD_SUCCESS,
     payload,
   };
 };
@@ -135,6 +181,33 @@ export function addCard({ listId, name }) {
       .catch((error) => {
         console.log(error);
         dispatch(addCardFailure(error));
+      });
+  };
+}
+
+//TODO
+export function editCard({ listId, cardId, changes }) {
+  return (dispatch) => {
+    dispatch(editCardRequest());
+    return axios
+      .patch(`/list/${listId}/${cardId}`, changes)
+      .then(({ data }) => dispatch(editCardSuccess({ listId, card: data })))
+      .catch((error) => {
+        console.log(error);
+        dispatch(editCardFailure(error));
+      });
+  };
+}
+
+export function deleteCard({ listId, cardId }) {
+  return (dispatch) => {
+    dispatch(deleteCardRequest());
+    return axios
+      .delete(`/list/${listId}/card/${cardId}`)
+      .then(() => dispatch(deleteCardSuccess({ listId, cardId })))
+      .catch((error) => {
+        console.log(error);
+        dispatch(deleteCardFailure(error));
       });
   };
 }

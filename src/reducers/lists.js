@@ -8,12 +8,18 @@ const {
   ADD_CARD_REQUEST,
   ADD_CARD_FAILURE,
   ADD_CARD_SUCCESS,
+  EDIT_CARD_REQUEST,
+  EDIT_CARD_FAILURE,
+  EDIT_CARD_SUCCESS,
   ADD_LIST_SUCCESS,
   ADD_LIST_REQUEST,
   ADD_LIST_FAILURE,
   DELETE_LIST_REQUEST,
   DELETE_LIST_SUCCESS,
   DELETE_LIST_FAILURE,
+  DELETE_CARD_REQUEST,
+  DELETE_CARD_SUCCESS,
+  DELETE_CARD_FAILURE,
 } = require('./actions');
 
 const lists = (
@@ -84,6 +90,20 @@ const lists = (
     case ADD_CARD_FAILURE:
       return { ...state, isFetching: false };
 
+    //TODO
+    case EDIT_CARD_REQUEST:
+      return { ...state, isFetching: true };
+
+    case EDIT_CARD_SUCCESS: {
+      const { listId, card } = action.payload;
+      const listsCopy = [...state.items];
+      const listIndex = state.items.findIndex((list) => list._id === listId);
+      listsCopy[listIndex].cards = [...listsCopy[listIndex].cards, card];
+      return { ...state, isFetching: false, items: listsCopy };
+    }
+    case EDIT_CARD_FAILURE:
+      return { ...state, isFetching: false };
+
     case ADD_LIST_REQUEST:
       return { ...state, isFetching: true };
 
@@ -100,10 +120,39 @@ const lists = (
     case DELETE_LIST_SUCCESS: {
       const listId = action.payload;
       const listsCopy = [...state.items];
-      return { ...state, isFetching: false, items: listsCopy.filter((list) => list._id !== listId) };
+      return {
+        ...state,
+        isFetching: false,
+        items: listsCopy.filter((list) => list._id !== listId),
+      };
     }
     case DELETE_LIST_FAILURE:
       return { ...state, isFetching: false };
+
+    case DELETE_CARD_REQUEST:
+      return { ...state, isFetching: true };
+
+    case DELETE_CARD_SUCCESS: {
+      const { listId, cardId } = action.payload;
+
+      const sourceListIndex = state.items.findIndex(
+        (list) => list._id === listId
+      );
+      const listsCopy = [...state.items];
+      const cardsCopy = listsCopy[sourceListIndex].cards.filter(
+        (card) => card._id !== cardId
+      );
+      listsCopy[sourceListIndex].cards = cardsCopy;
+
+      return {
+        ...state,
+        isFetching: false,
+        items: listsCopy,
+      };
+    }
+    case DELETE_CARD_FAILURE:
+      return { ...state, isFetching: false };
+
     default:
       return state;
   }

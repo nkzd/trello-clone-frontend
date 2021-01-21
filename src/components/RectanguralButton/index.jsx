@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const RectangularButton = ({ text, color }) => {
-  return <StyledButton color={color}>{text}</StyledButton>;
+const RectangularButton = ({ text, color, onClick }) => {
+  return (
+    <StyledButton onClick={onClick} color={color}>
+      {text}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button`
