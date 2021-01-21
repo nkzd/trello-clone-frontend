@@ -104,11 +104,11 @@ const AddToCardWrappper = styled.div`
     color: #5e6c84;
     font-size: 12px;
   }
-  cursor: pointer;
 `;
 
 const IconWrapper = styled.div`
   color: #5e6c84;
+  cursor: pointer;
   span {
     margin-left: 5px;
   }
