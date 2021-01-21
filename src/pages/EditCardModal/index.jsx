@@ -47,9 +47,6 @@ const ParagraphWrapper = styled.div`
   & > * {
     padding: 5px;
   }
-  & > *:last-child {
-    margin-top: 20px;
-  }
 `;
 
 const RectangularButtonWrapper = styled.div`
