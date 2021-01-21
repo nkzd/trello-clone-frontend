@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import AddToCard from './AddToCard';
+import AddToCard from '../../containers/AddToCard';
 
-const ModalSidebar = () => {
+const ModalSidebar = ({ listId, cardId }) => {
   return (
     <ModalSidebarWrapper>
       <p>ADD TO CARD</p>
       <AddToWrapper>
-        <AddToCard type='description' />
-        <AddToCard type='duedate' />
-        <AddToCard type='progress' />
-        <AddToCard type='labels' />
+        <AddToCard type='description' listId={listId} cardId={cardId} />
+        <AddToCard type='duedate' listId={listId} cardId={cardId} />
+        <AddToCard type='progress' listId={listId} cardId={cardId} />
+        <AddToCard type='labels' listId={listId} cardId={cardId} />
       </AddToWrapper>
     </ModalSidebarWrapper>
   );

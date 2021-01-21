@@ -98,7 +98,10 @@ const lists = (
       const { listId, card } = action.payload;
       const listsCopy = [...state.items];
       const listIndex = state.items.findIndex((list) => list._id === listId);
-      listsCopy[listIndex].cards = [...listsCopy[listIndex].cards, card];
+      const cardIndex = listsCopy[listIndex].cards.findIndex(
+        (aCard) => aCard._id === card._id
+      );
+      listsCopy[listIndex].cards[cardIndex] = card;
       return { ...state, isFetching: false, items: listsCopy };
     }
     case EDIT_CARD_FAILURE:

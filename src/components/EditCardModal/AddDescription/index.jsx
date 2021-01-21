@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import XButton from '../../XButton';
 import RectangularButton from '../../RectanguralButton';
 
-const AddDescription = ({ closePopup }) => {
+const AddDescription = ({ closePopup, patchChanges }) => {
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -12,8 +12,11 @@ const AddDescription = ({ closePopup }) => {
   const handleClose = () => {
     closePopup();
   };
+
+  //TODO validacija
   const handleSubmit = (event) => {
     event.preventDefault();
+    patchChanges({ description: inputValue });
     setInputValue('');
     closePopup();
   };

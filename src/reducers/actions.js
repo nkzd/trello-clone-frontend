@@ -185,12 +185,11 @@ export function addCard({ listId, name }) {
   };
 }
 
-//TODO
 export function editCard({ listId, cardId, changes }) {
   return (dispatch) => {
     dispatch(editCardRequest());
     return axios
-      .patch(`/list/${listId}/${cardId}`, changes)
+      .patch(`/list/${listId}/card/${cardId}`, changes)
       .then(({ data }) => dispatch(editCardSuccess({ listId, card: data })))
       .catch((error) => {
         console.log(error);

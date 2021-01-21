@@ -10,7 +10,11 @@ import 'reactjs-popup/dist/index.css';
 import AddDescription from './AddDescription';
 import AddProgress from './AddProgress';
 
-const AddToCard = ({ type }) => {
+const AddToCard = ({ type, listId, cardId, editCard }) => {
+  const patchChanges = (changes) => {
+    editCard({ listId, cardId, changes });
+  };
+
   const renderSwitch = (type) => {
     switch (type) {
       case 'labels': {
@@ -36,7 +40,7 @@ const AddToCard = ({ type }) => {
           >
             {(close) => (
               <div>
-                <DatePicker closePopup={close} />
+                <DatePicker closePopup={close} patchChanges={patchChanges} />
               </div>
             )}
           </StyledPopup>
@@ -57,7 +61,7 @@ const AddToCard = ({ type }) => {
           >
             {(close) => (
               <div>
-                <AddProgress closePopup={close} />
+                <AddProgress closePopup={close} patchChanges={patchChanges} />
               </div>
             )}
           </StyledPopup>
@@ -78,7 +82,10 @@ const AddToCard = ({ type }) => {
           >
             {(close) => (
               <div>
-                <AddDescription closePopup={close} />
+                <AddDescription
+                  closePopup={close}
+                  patchChanges={patchChanges}
+                />
               </div>
             )}
           </StyledPopup>
