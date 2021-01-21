@@ -2,20 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
 
-const ModalLabelList = ({ labels }) => {
+const ModalLabelList = ({ allLabels, labels }) => {
   return (
     <ModalLabelListWrapper>
       <p>LABEL LIST</p>
       <LabelListWrapper>
-        {labels.map((label, index) => {
-          return (
+        {labels.map((labelId) => {
+          const resultLabel = allLabels.find((label) => label._id === labelId);
+          return resultLabel ? (
             <Label
-              key={index}
-              color={label.color}
-              name={label.name}
+              key={resultLabel._id}
+              color={resultLabel.color}
+              name={resultLabel.name}
               expand={true}
             />
-          );
+          ) : null;
         })}
       </LabelListWrapper>
     </ModalLabelListWrapper>

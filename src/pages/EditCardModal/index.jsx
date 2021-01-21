@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ModalNames from '../../components/EditCardModal/ModalNames';
 import ModalDueDate from '../../components/EditCardModal/ModalDueDate';
 import ModalProgressStatus from '../../components/EditCardModal/ModalProgressStatus';
-import ModalLabelList from '../../components/EditCardModal/ModalLabelList';
+import ModalLabelList from '../../containers/ModalLabelList';
 import ModalSidebar from '../../components/EditCardModal/ModalSidebar';
 import ModalDescription from '../../components/EditCardModal/ModalDescription';
 import RectangularButton from '../../components/RectanguralButton';
@@ -30,7 +30,9 @@ const EditCardModal = ({
         ) : null}
       </ParagraphWrapper>
       <ModalSidebar />
-      <RectangularButtonWrapper><RectangularButton text='Delete Card' color='#cc0033' /></RectangularButtonWrapper>
+      <RectangularButtonWrapper>
+        <RectangularButton text='Delete Card' color='#cc0033' />
+      </RectangularButtonWrapper>
     </EditCardModalWrapper>
   );
 };
@@ -50,7 +52,8 @@ const ParagraphWrapper = styled.div`
 `;
 
 const RectangularButtonWrapper = styled.div`
+  margin-top: 5px;
   width: 150px;
-`
+`;
 
 export default EditCardModal;
