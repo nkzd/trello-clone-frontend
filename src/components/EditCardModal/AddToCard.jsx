@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AddDescription from './AddDescription';
 import AddProgress from './AddProgress';
+import AddLabel from './AddLabel';
 
 const AddToCard = ({ type, listId, cardId, editCard }) => {
   const patchChanges = (changes) => {
@@ -19,10 +20,23 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
     switch (type) {
       case 'labels': {
         return (
-          <IconWrapper>
-            <PurchaseTagAlt size={14} />
-            <span>LABELS</span>
-          </IconWrapper>
+          <StyledPopup
+            arrow={false}
+            trigger={
+              <IconWrapper>
+                <PurchaseTagAlt size={14} />
+                <span>LABELS</span>
+              </IconWrapper>
+            }
+            position='bottom'
+            nested
+          >
+            {(close) => (
+              <div>
+                <AddLabel closePopup={close} patchChanges={patchChanges} />
+              </div>
+            )}
+          </StyledPopup>
         );
       }
       case 'duedate': {

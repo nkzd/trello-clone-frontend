@@ -1,37 +1,13 @@
 import React from 'react';
 import Card from './index';
-import { Provider } from 'react-redux';
-import { action } from '@storybook/addon-actions';
-// A super-simple mock of a redux store
-const store = {
-  getState: () => {
-    return {
-      labels: {
-        items: [
-          { _id: 1, name: 'Whatever', color: 'lightcoral' },
-          { _id: 2, name: 'A', color: 'lightblue' },
-          { _id: 3, color: 'lightgreen' },
-          {
-            _id: 4,
-            name: 'quick brown fox jumps over a lazy dog',
-            color: 'lightgray',
-          },
-          { _id: 5, name: 'bo problemo', color: 'lightpink' },
-        ],
-        isFetching: false,
-      },
-    };
-  },
-  subscribe: () => 0,
-  dispatch: action('dispatch'),
-};
+
 export default {
   title: 'Card',
   component: Card,
   decorators: [
     (Story) => (
       <div style={{ margin: '5em' }}>
-        <Provider store={store}>{<Story />}</Provider>
+        <Story />
       </div>
     ),
   ],

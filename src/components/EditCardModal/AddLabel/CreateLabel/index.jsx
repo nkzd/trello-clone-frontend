@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import RectangularButton from '../../../RectanguralButton';
-import XButton from '../../../XButton';
 import ColorCheckbox from '../ColorCheckbox';
 
 const CreateLabel = ({ handleClose }) => {
   const [inputValue, setInputValue] = useState('');
-  const [currentPickedColor, setCurrentPickedColor] = useState('');
+  const [currentPickedColor, setCurrentPickedColor] = useState('#61bd4f');
 
   const colorsArray = [
     '#61bd4f',
