@@ -10,7 +10,7 @@ const Template = (args) => <ChooseLabels {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    labels: [
+    allLabels: [
         {_id:"1", name: 'Whatever', color: "lightcoral"},
         {_id:"2", name: 'A', color: "lightblue"},
         {_id:"3", color: "lightgreen"},

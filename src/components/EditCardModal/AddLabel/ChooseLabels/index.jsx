@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import LabelRectangle from '../LabelRectangle';
 import DeleteLabelIcon from './DeleteLabelIcon';
 
-const ChooseLabels = ({ labels }) => {
+const ChooseLabels = ({ allLabels, handleScreenChange }) => {
   return (
     <ChooseLabelsWrapper>
-      <Subtitle>Labels</Subtitle>
       <LabelList>
-        {labels.map((label) => (
+        {allLabels.map((label) => (
           <LabelRow key={label._id}>
             <LabelRectangle
               color={label.color}
@@ -19,21 +18,14 @@ const ChooseLabels = ({ labels }) => {
           </LabelRow>
         ))}
       </LabelList>
+      <CreateNewLabelButton type='button' onClick={handleScreenChange}>
+        Create new label
+      </CreateNewLabelButton>
     </ChooseLabelsWrapper>
   );
 };
 
 const ChooseLabelsWrapper = styled.div``;
-
-const Subtitle = styled.div`
-  color: #5e6c84;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 16px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-`;
 
 const LabelList = styled.div`
   & > * {
@@ -49,6 +41,22 @@ const LabelRow = styled.div`
   grid-template-columns: 1fr auto;
   grid-column-gap: 10px;
   align-items: center;
+`;
+
+const CreateNewLabelButton = styled.button`
+  display: block;
+  width: 100%;
+  background-color: rgba(9, 30, 66, 0.07);
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: 400;
+  text-align: center;
+  color: #172b4d;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin-top: 12px;
 `;
 
 export default ChooseLabels;

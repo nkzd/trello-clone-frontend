@@ -20,6 +20,10 @@ const LabelRecatangleWrapper = styled.div`
   border-radius: 3px;
   color: #fff;
   font-weight: 700;
+  overflow: hidden;
+  padding: 4px 6px;
+  font-size: 14px;
+  line-height: 20px;
   min-height: 20px;
   padding: 6px 12px;
   cursor: pointer;

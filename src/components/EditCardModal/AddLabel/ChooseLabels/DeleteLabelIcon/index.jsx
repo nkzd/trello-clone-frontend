@@ -13,8 +13,8 @@ const DeleteIcon = styled(X)`
 `;
 
 const Wrapper = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 5px;
   background-color: white;
   &:hover {

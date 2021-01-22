@@ -15,11 +15,11 @@ const SolidColorWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
+  width: 46px;
   height: 32px;
   border-radius: 5px;
   background-color: ${(props) => props.color};
-  margin: 0 8px 8px 0;
+  margin: 0 6px 6px 0;
 
   &:hover {
     filter: brightness(85%);

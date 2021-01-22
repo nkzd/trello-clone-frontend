@@ -53,16 +53,13 @@ const CreateLabel = ({ handleClose }) => {
         </ColorPickerWrapper>
         <FooterWrapper>
           <RectangularButton text='Add Label' color='#5aac44' type='submit' />
-          <XButton onClick={handleClose} />
         </FooterWrapper>
       </form>
     </CreateLabelWrapper>
   );
 };
 
-const CreateLabelWrapper = styled.div`
-  width: 290px;
-`;
+const CreateLabelWrapper = styled.div``;
 
 const NameInput = styled.div`
   input {
@@ -98,10 +95,7 @@ const ColorPickerWrapper = styled.div`
 `;
 
 const FooterWrapper = styled.div`
-  padding: 5px;
-  ${XButton} {
-    margin-left: 5px;
-  }
+  margin-top: 3px;
 `;
 
 export default CreateLabel;
