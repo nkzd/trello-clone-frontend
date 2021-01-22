@@ -7,8 +7,6 @@ import styled from 'styled-components';
 const DatePicker = ({ closePopup, patchChanges }) => {
   const [selectedDay, setSelectedDay] = useState(undefined);
 
-  //tipa date
-  //na klik kroz reducer dodaj u karticu duedate
   const handleDayClick = (day) => {
     setSelectedDay(day);
     patchChanges({ dueDate: day.getTime() });

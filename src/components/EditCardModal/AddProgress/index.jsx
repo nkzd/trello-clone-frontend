@@ -4,7 +4,7 @@ import RectangularButton from '../../RectanguralButton';
 import ProgressStatus from '../../Statuses/ProgressStatus';
 import XButton from '../../XButton';
 
-const AddProgress = ({ closePopup }) => {
+const AddProgress = ({ closePopup, patchChanges }) => {
   const [selectedValue, setSelectedValue] = useState('');
 
   const handleChange = (event) => {
@@ -12,8 +12,9 @@ const AddProgress = ({ closePopup }) => {
   };
 
   const handleSubmit = (event) => {
-    closePopup();
     event.preventDefault();
+    patchChanges({ progressStatus: selectedValue });
+    closePopup();
   };
 
   const handleClose = () => {
