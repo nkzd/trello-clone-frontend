@@ -103,7 +103,7 @@ export function deleteLabel(labelId) {
     dispatch(deleteLabelRequest());
     return axios
       .delete(`/label/${labelId}`)
-      .then(({ data }) => dispatch(deleteLabelSuccess(data)))
+      .then(() => dispatch(deleteLabelSuccess(labelId)))
       .catch((error) => {
         console.log(error);
         dispatch(deleteLabelFailure(error));
@@ -116,7 +116,7 @@ export function createLabel(label) {
     dispatch(createLabelRequest());
     return axios
       .post(`/label/`, label)
-      .then(({data}) => dispatch(createLabelSuccess(data)))
+      .then(({ data }) => dispatch(createLabelSuccess(data)))
       .catch((error) => {
         console.log(error);
         dispatch(createLabelFailure(error));

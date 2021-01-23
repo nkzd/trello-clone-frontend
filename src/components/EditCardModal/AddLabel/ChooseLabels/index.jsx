@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import LabelRectangle from '../LabelRectangle';
 import DeleteLabelIcon from './DeleteLabelIcon';
 
-const ChooseLabels = ({ allLabels, handleScreenChange }) => {
+const ChooseLabels = ({ allLabels, handleScreenChange, deleteLabel }) => {
   return (
     <ChooseLabelsWrapper>
       <LabelList>
@@ -14,7 +14,7 @@ const ChooseLabels = ({ allLabels, handleScreenChange }) => {
               name={label.name}
               checked={false}
             />
-            <DeleteLabelIcon />
+            <DeleteLabelIcon onClick={() => deleteLabel(label._id)} />
           </LabelRow>
         ))}
       </LabelList>

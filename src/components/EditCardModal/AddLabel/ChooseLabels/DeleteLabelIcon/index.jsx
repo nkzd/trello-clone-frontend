@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { X } from '@styled-icons/boxicons-regular/X';
 
-const DeleteLabelIcon = () => (
-  <Wrapper>
+const DeleteLabelIcon = ({ onClick }) => (
+  <Wrapper onClick={onClick}>
     <DeleteIcon />
   </Wrapper>
 );
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   border-radius: 5px;
   background-color: white;
   &:hover {
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
   }
   &:hover ${DeleteIcon} {
     color: #616161;
