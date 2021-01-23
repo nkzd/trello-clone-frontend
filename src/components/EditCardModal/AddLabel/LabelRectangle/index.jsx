@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Check } from '@styled-icons/boxicons-regular/Check';
 import { darken } from 'polished';
 
-const LabelRectangle = ({ color, name, checked }) => {
+const LabelRectangle = ({ color, name, checked, handleLabelCheck }) => {
   return (
-    <LabelRecatangleWrapper color={color}>
+    <LabelRecatangleWrapper color={color} onClick={handleLabelCheck}>
       {name ? <span>{name}</span> : null}
       {checked ? <StyledCheck size={20} /> : null}
     </LabelRecatangleWrapper>

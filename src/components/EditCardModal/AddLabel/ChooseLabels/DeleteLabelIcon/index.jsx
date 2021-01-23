@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { X } from '@styled-icons/boxicons-regular/X';
 
-const DeleteLabelIcon = ({ onClick }) => (
-  <Wrapper onClick={onClick}>
+const DeleteLabelIcon = ({ handleLabelDelete }) => (
+  <Wrapper onClick={handleLabelDelete}>
     <DeleteIcon />
   </Wrapper>
 );

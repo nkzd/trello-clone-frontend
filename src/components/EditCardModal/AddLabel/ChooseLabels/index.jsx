@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import LabelRectangle from '../LabelRectangle';
 import DeleteLabelIcon from './DeleteLabelIcon';
 
 const ChooseLabels = ({ allLabels, handleScreenChange, deleteLabel }) => {
+  const [checkedLabels, setCheckedLabels] = useState([]);
+
+  const handleLabelCheck = (labelId) => {
+    const checkedLabelsCopy = [...checkedLabels];
+    checkedLabelsCopy.includes(labelId)
+      ? removeFromArray(checkedLabelsCopy, labelId)
+      : checkedLabelsCopy.push(labelId);
+    setCheckedLabels(checkedLabelsCopy);
+  };
+
+  const removeFromArray = (array, value) => {
+    const index = array.indexOf(value);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+  };
+
   return (
     <ChooseLabelsWrapper>
       <LabelList>
@@ -12,9 +29,10 @@ const ChooseLabels = ({ allLabels, handleScreenChange, deleteLabel }) => {
             <LabelRectangle
               color={label.color}
               name={label.name}
-              checked={false}
+              checked={checkedLabels.includes(label._id)}
+              handleLabelCheck={() => handleLabelCheck(label._id)}
             />
-            <DeleteLabelIcon onClick={() => deleteLabel(label._id)} />
+            <DeleteLabelIcon handleLabelDelete={() => deleteLabel(label._id)} />
           </LabelRow>
         ))}
       </LabelList>
