@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import LabelRectangle from '../LabelRectangle';
 import DeleteLabelIcon from './DeleteLabelIcon';
 
-const ChooseLabels = ({ allLabels, handleScreenChange, deleteLabel }) => {
+const ChooseLabels = ({
+  allLabels,
+  handleScreenChange,
+  deleteLabel,
+  patchChanges,
+}) => {
   const [checkedLabels, setCheckedLabels] = useState([]);
 
   const handleLabelCheck = (labelId) => {
@@ -12,6 +17,7 @@ const ChooseLabels = ({ allLabels, handleScreenChange, deleteLabel }) => {
       ? removeFromArray(checkedLabelsCopy, labelId)
       : checkedLabelsCopy.push(labelId);
     setCheckedLabels(checkedLabelsCopy);
+    patchChanges({ labels: checkedLabelsCopy });
   };
 
   const removeFromArray = (array, value) => {

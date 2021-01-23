@@ -29,7 +29,10 @@ const AddLabel = ({ closePopup, patchChanges }) => {
       </AddLabelHeader>
       <ScreenWrapper>
         {screen === 'chooseLabel' ? (
-          <ChooseLabels handleScreenChange={handleScreenChange} />
+          <ChooseLabels
+            handleScreenChange={handleScreenChange}
+            patchChanges={patchChanges}
+          />
         ) : (
           <CreateLabel closePopup={closePopup} />
         )}
