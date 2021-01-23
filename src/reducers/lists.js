@@ -90,7 +90,6 @@ const lists = (
     case ADD_CARD_FAILURE:
       return { ...state, isFetching: false };
 
-    //TODO
     case EDIT_CARD_REQUEST:
       return { ...state, isFetching: true };
 

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import RectangularButton from '../../../RectanguralButton';
 import ColorCheckbox from '../ColorCheckbox';
 
-const CreateLabel = ({ handleClose }) => {
+const CreateLabel = ({ closePopup, createLabel }) => {
   const [inputValue, setInputValue] = useState('');
-  const [currentPickedColor, setCurrentPickedColor] = useState('#61bd4f');
+  const [pickedColor, setPickedColor] = useState('#61bd4f');
 
   const colorsArray = [
     '#61bd4f',
@@ -26,10 +26,12 @@ const CreateLabel = ({ handleClose }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    createLabel({ name: inputValue, color: pickedColor });
+    closePopup();
   };
 
   const handleColorClick = (color) => {
-    setCurrentPickedColor(color);
+    setPickedColor(color);
   };
 
   return (
@@ -45,7 +47,7 @@ const CreateLabel = ({ handleClose }) => {
             <ColorCheckbox
               color={color}
               key={color}
-              checked={currentPickedColor === color ? true : false}
+              checked={pickedColor === color ? true : false}
               onClick={() => handleColorClick(color)}
             />
           ))}

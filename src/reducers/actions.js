@@ -48,25 +48,25 @@ export const requestLabelsSuccess = (payload) => {
   };
 };
 
-export const ADD_LABEL_REQUEST = 'ADD_LABEL_REQUEST';
-export const addLabelRequest = () => {
+export const CREATE_LABEL_REQUEST = 'CREATE_LABEL_REQUEST';
+export const createLabelRequest = () => {
   return {
-    type: ADD_LABEL_REQUEST,
+    type: CREATE_LABEL_REQUEST,
   };
 };
 
-export const ADD_LABEL_FAILURE = 'ADD_LABEL_FAILURE';
-export const addLabelFailure = (error) => {
+export const CREATE_LABEL_FAILURE = 'CREATE_LABEL_FAILURE';
+export const createLabelFailure = (error) => {
   return {
-    type: ADD_LABEL_FAILURE,
+    type: CREATE_LABEL_FAILURE,
     error,
   };
 };
 
-export const ADD_LABEL_SUCCESS = 'ADD_LABEL_SUCCESS';
-export const addLabelSuccess = (payload) => {
+export const CREATE_LABEL_SUCCESS = 'CREATE_LABEL_SUCCESS';
+export const createLabelSuccess = (payload) => {
   return {
-    type: ADD_LABEL_SUCCESS,
+    type: CREATE_LABEL_SUCCESS,
     payload,
   };
 };

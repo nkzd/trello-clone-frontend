@@ -24,9 +24,9 @@ import {
   deleteLabelRequest,
   deleteLabelSuccess,
   deleteLabelFailure,
-  addLabelRequest,
-  addLabelSuccess,
-  addLabelFailure
+  createLabelRequest,
+  createLabelSuccess,
+  createLabelFailure,
 } from './actions';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -103,23 +103,23 @@ export function deleteLabel(labelId) {
     dispatch(deleteLabelRequest());
     return axios
       .delete(`/label/${labelId}`)
-      .then(({ data }) => dispatch(addLabelSuccess(data)))
+      .then(({ data }) => dispatch(deleteLabelSuccess(data)))
       .catch((error) => {
         console.log(error);
-        dispatch(addLabelFailure(error));
+        dispatch(deleteLabelFailure(error));
       });
   };
 }
 
-export function addlabel(label) {
+export function createLabel(label) {
   return (dispatch) => {
-    dispatch(addLabelRequest());
+    dispatch(createLabelRequest());
     return axios
-      .post(`/label/`)
-      .then(() => dispatch(addLabelSuccess()))
+      .post(`/label/`, label)
+      .then(({data}) => dispatch(createLabelSuccess(data)))
       .catch((error) => {
         console.log(error);
-        dispatch(addLabelFailure(error));
+        dispatch(createLabelFailure(error));
       });
   };
 }

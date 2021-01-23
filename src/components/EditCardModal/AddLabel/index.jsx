@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import XButton from '../../XButton';
 import ChooseLabels from '../../../containers/ChooseLabels';
-import CreateLabel from './CreateLabel';
+import CreateLabel from '../../../containers/CreateLabel';
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack';
 
 const AddLabel = ({ closePopup, patchChanges }) => {
@@ -31,7 +31,7 @@ const AddLabel = ({ closePopup, patchChanges }) => {
         {screen === 'chooseLabel' ? (
           <ChooseLabels handleScreenChange={handleScreenChange} />
         ) : (
-          <CreateLabel handleScreenChange={handleScreenChange} />
+          <CreateLabel closePopup={closePopup} />
         )}
       </ScreenWrapper>
     </AddLabelWrapper>
