@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddAnotherList from '../components/AddAnotherList';
-import { addList } from '../reducers/actions';
+import { addList } from '../reducers/thunks';
 
 const mapDispatchToProps = {
     addList,

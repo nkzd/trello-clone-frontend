@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers';
 import './index.css';
 import MainPage from './containers/MainPage';
-import { fetchLists, fetchLabels } from './reducers/actions';
+import { fetchLists, fetchLabels } from './reducers/thunks';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

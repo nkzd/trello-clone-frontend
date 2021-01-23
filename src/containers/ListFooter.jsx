@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListFooter from '../components/ListFooter';
-import { addCard, deleteList } from '../reducers/actions';
+import { addCard, deleteList } from '../reducers/thunks';
 
 const mapDispatchToProps = {
     addCard,
