@@ -1,5 +1,6 @@
 import React from 'react';
 import AddProgres from './index';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Modal/AddProgres',
@@ -10,5 +11,6 @@ const Template = (args) => <AddProgres {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  closePopup: () => {},
+  closePopup: action('closePopup'),
+  patchChanges: action('patchChanges'),
 };

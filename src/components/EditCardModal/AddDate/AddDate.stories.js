@@ -1,13 +1,13 @@
 import React from 'react';
-import AddDescription from './index';
+import AddDate from './index';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Modal/AddDescription',
-  component: AddDescription,
+  title: 'Modal/AddDate',
+  component: AddDate,
 };
 
-const Template = (args) => <AddDescription {...args} />;
+const Template = (args) => <AddDate {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

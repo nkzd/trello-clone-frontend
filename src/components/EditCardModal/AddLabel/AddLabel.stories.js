@@ -1,5 +1,6 @@
 import React from 'react';
 import AddLabel from './index';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Modal/AddLabel',
@@ -9,4 +10,7 @@ export default {
 const Template = (args) => <AddLabel {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  closePopup: action('closePopup'),
+  patchChanges: action('patchChanges'),
+};

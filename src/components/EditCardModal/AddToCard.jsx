@@ -4,7 +4,7 @@ import { PurchaseTagAlt } from '@styled-icons/boxicons-regular/PurchaseTagAlt';
 import { Clock } from '@styled-icons/bootstrap/Clock';
 import { Check } from '@styled-icons/boxicons-regular/Check';
 import { TextLeft } from '@styled-icons/bootstrap/TextLeft';
-import DatePicker from './DatePicker';
+import AddDate from './AddDate';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AddDescription from './AddDescription';
@@ -54,7 +54,7 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
           >
             {(close) => (
               <div>
-                <DatePicker closePopup={close} patchChanges={patchChanges} />
+                <AddDate closePopup={close} patchChanges={patchChanges} />
               </div>
             )}
           </StyledPopup>
