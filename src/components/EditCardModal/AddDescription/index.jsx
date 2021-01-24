@@ -36,14 +36,14 @@ const AddDescription = ({ closePopup, patchChanges }) => {
             wrap='soft'
             rows={7}
           />
-          <div>
+          <ButtonsWrapper>
             <RectangularButton
               text='Add Description'
               color='#5aac44'
               type='submit'
             />
             <RectangularButton text='Delete Description' color='#cf513d' />
-          </div>
+          </ButtonsWrapper>
         </form>
       </div>
     </AddDescriptionWrapper>
@@ -84,6 +84,11 @@ const StyledTextArea = styled.textarea`
   width: 100%;
   margin-bottom: 5px;
   resize: none;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 export default AddDescription;

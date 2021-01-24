@@ -3,6 +3,7 @@ import DayPicker from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
 import styled from 'styled-components';
+import RectangularButton from '../../RectanguralButton';
 import XButton from '../../XButton';
 
 const AddDate = ({ closePopup, patchChanges }) => {
@@ -10,12 +11,15 @@ const AddDate = ({ closePopup, patchChanges }) => {
 
   const handleClose = () => {
     closePopup();
-  }
+  };
+
+  const handleSubmit = () => {
+    patchChanges({ dueDate: selectedDay.getTime() });
+    closePopup();
+  };
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
-    patchChanges({ dueDate: day.getTime() });
-    closePopup();
   };
 
   return (
@@ -26,6 +30,15 @@ const AddDate = ({ closePopup, patchChanges }) => {
         <XButton onClick={handleClose} />
       </AddDateHeader>
       <StyledDayPicker onDayClick={handleDayClick} selectedDays={selectedDay} />
+      <ButtonsWrapper> 
+        <RectangularButton
+          text='Add Progress'
+          color='#5aac44'
+          type='button'
+          onClick={handleSubmit}
+        />
+        <RectangularButton text='Delete Progress' color='#cf513d' />
+      </ButtonsWrapper>
     </AddDateWrapper>
   );
 };
@@ -58,6 +71,11 @@ const Subtitle = styled.span`
   line-height: 16px;
   text-transform: uppercase;
 `;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
 
 const StyledDayPicker = styled(DayPicker)`
   .DayPicker-wrapper {

@@ -91,14 +91,14 @@ const AddProgress = ({ closePopup, patchChanges }) => {
             <label htmlFor='Complete'>Complete</label>
             <ProgressStatus progressStatus='Complete' />
           </RadioWrapper>
-          <div>
+          <ButtonsWrapper>
             <RectangularButton
               text='Add Progress'
               color='#5aac44'
               type='submit'
             />
             <RectangularButton text='Delete Progress' color='#cf513d' />
-          </div>
+          </ButtonsWrapper>
         </form>
       </FormWrapper>
     </AddProgressWrapper>
@@ -148,11 +148,9 @@ const FormWrapper = styled.div`
   font-family: Helvetica, Arial, sans-serif;
 `;
 
-const FooterWrapper = styled.div`
-  padding: 5px;
-  ${XButton} {
-    margin-left: 5px;
-  }
+const ButtonsWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
 
 export default AddProgress;
