@@ -13,6 +13,13 @@ const AddDescription = ({ closePopup, patchChanges }) => {
     closePopup();
   };
 
+  const handleDelete = (event) => {
+    event.preventDefault();
+    patchChanges({ description: '' });
+    setInputValue('');
+    closePopup();
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     patchChanges({ description: inputValue });
@@ -42,7 +49,12 @@ const AddDescription = ({ closePopup, patchChanges }) => {
               color='#5aac44'
               type='submit'
             />
-            <RectangularButton text='Delete Description' color='#cf513d' />
+            <RectangularButton
+              text='Delete Description'
+              color='#cf513d'
+              type='button'
+              onClick={handleDelete}
+            />
           </ButtonsWrapper>
         </form>
       </div>

@@ -22,6 +22,11 @@ const AddDate = ({ closePopup, patchChanges }) => {
     setSelectedDay(day);
   };
 
+  const handleDelete = () => {
+    patchChanges({ dueDate: null });
+    closePopup();
+  };
+
   return (
     <AddDateWrapper>
       <AddDateHeader>
@@ -30,14 +35,19 @@ const AddDate = ({ closePopup, patchChanges }) => {
         <XButton onClick={handleClose} />
       </AddDateHeader>
       <StyledDayPicker onDayClick={handleDayClick} selectedDays={selectedDay} />
-      <ButtonsWrapper> 
+      <ButtonsWrapper>
         <RectangularButton
           text='Add Progress'
           color='#5aac44'
           type='button'
           onClick={handleSubmit}
         />
-        <RectangularButton text='Delete Progress' color='#cf513d' />
+        <RectangularButton
+          text='Delete Progress'
+          color='#cf513d'
+          type='button'
+          onClick={handleDelete}
+        />
       </ButtonsWrapper>
     </AddDateWrapper>
   );
@@ -75,7 +85,7 @@ const Subtitle = styled.span`
 const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
-`
+`;
 
 const StyledDayPicker = styled(DayPicker)`
   .DayPicker-wrapper {

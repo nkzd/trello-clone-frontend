@@ -17,6 +17,12 @@ const AddProgress = ({ closePopup, patchChanges }) => {
     closePopup();
   };
 
+  const handleDelete = (event) => {
+    event.preventDefault();
+    patchChanges({ progressStatus: null });
+    closePopup();
+  };
+
   const handleClose = () => {
     closePopup();
   };
@@ -97,7 +103,12 @@ const AddProgress = ({ closePopup, patchChanges }) => {
               color='#5aac44'
               type='submit'
             />
-            <RectangularButton text='Delete Progress' color='#cf513d' />
+            <RectangularButton
+              text='Delete Progress'
+              color='#cf513d'
+              type='button'
+              onClick={handleDelete}
+            />
           </ButtonsWrapper>
         </form>
       </FormWrapper>
