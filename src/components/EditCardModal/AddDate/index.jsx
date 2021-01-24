@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import RectangularButton from '../../RectanguralButton';
 import XButton from '../../XButton';
 
-const AddDate = ({ closePopup, patchChanges }) => {
-  const [selectedDay, setSelectedDay] = useState(undefined);
+const AddDate = ({ closePopup, patchChanges, dueDate }) => {
+  const [selectedDay, setSelectedDay] = useState(new Date(dueDate));
 
   const handleClose = () => {
     closePopup();
@@ -37,13 +37,13 @@ const AddDate = ({ closePopup, patchChanges }) => {
       <StyledDayPicker onDayClick={handleDayClick} selectedDays={selectedDay} />
       <ButtonsWrapper>
         <RectangularButton
-          text='Add Progress'
+          text='Add Date'
           color='#5aac44'
           type='button'
           onClick={handleSubmit}
         />
         <RectangularButton
-          text='Delete Progress'
+          text='Delete Date'
           color='#cf513d'
           type='button'
           onClick={handleDelete}

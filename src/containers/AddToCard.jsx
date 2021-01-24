@@ -6,4 +6,10 @@ const mapDispatchToProps = {
   editCard,
 };
 
-export default connect(null, mapDispatchToProps)(AddToCard);
+const mapStateToProps = (state) => {
+  return {
+    lists: state.lists.items,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddToCard);

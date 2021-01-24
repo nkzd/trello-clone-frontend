@@ -11,10 +11,18 @@ import AddDescription from './AddDescription';
 import AddProgress from './AddProgress';
 import AddLabel from './AddLabel';
 
-const AddToCard = ({ type, listId, cardId, editCard }) => {
+const AddToCard = ({ type, listId, cardId, editCard, lists }) => {
   const patchChanges = (changes) => {
     editCard({ listId, cardId, changes });
   };
+
+  const listIndex = lists.findIndex((list) => list._id === listId);
+  const cardIndex = lists[listIndex].cards.findIndex(
+    (card) => card._id === cardId
+  );
+  const { description, labels, progressStatus, dueDate } = lists[
+    listIndex
+  ].cards[cardIndex];
 
   const renderSwitch = (type) => {
     switch (type) {
@@ -33,7 +41,11 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
           >
             {(close) => (
               <div>
-                <AddLabel closePopup={close} patchChanges={patchChanges} />
+                <AddLabel
+                  closePopup={close}
+                  patchChanges={patchChanges}
+                  labels={labels}
+                />
               </div>
             )}
           </StyledPopup>
@@ -54,7 +66,11 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
           >
             {(close) => (
               <div>
-                <AddDate closePopup={close} patchChanges={patchChanges} />
+                <AddDate
+                  closePopup={close}
+                  patchChanges={patchChanges}
+                  dueDate={dueDate}
+                />
               </div>
             )}
           </StyledPopup>
@@ -75,7 +91,11 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
           >
             {(close) => (
               <div>
-                <AddProgress closePopup={close} patchChanges={patchChanges} />
+                <AddProgress
+                  closePopup={close}
+                  patchChanges={patchChanges}
+                  progressStatus={progressStatus}
+                />
               </div>
             )}
           </StyledPopup>
@@ -99,6 +119,7 @@ const AddToCard = ({ type, listId, cardId, editCard }) => {
                 <AddDescription
                   closePopup={close}
                   patchChanges={patchChanges}
+                  description={description}
                 />
               </div>
             )}

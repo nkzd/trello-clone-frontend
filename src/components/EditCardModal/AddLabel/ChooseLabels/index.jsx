@@ -8,8 +8,9 @@ const ChooseLabels = ({
   handleScreenChange,
   deleteLabel,
   patchChanges,
+  labels,
 }) => {
-  const [checkedLabels, setCheckedLabels] = useState([]);
+  const [checkedLabels, setCheckedLabels] = useState(labels || []);
 
   const handleLabelCheck = (labelId) => {
     const checkedLabelsCopy = [...checkedLabels];

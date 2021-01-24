@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import XButton from '../../XButton';
 import RectangularButton from '../../RectanguralButton';
 
-const AddDescription = ({ closePopup, patchChanges }) => {
-  const [inputValue, setInputValue] = useState('');
+const AddDescription = ({ closePopup, patchChanges, description }) => {
+  const [inputValue, setInputValue] = useState(description);
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };

@@ -6,7 +6,7 @@ import ChooseLabels from '../../../containers/ChooseLabels';
 import CreateLabel from '../../../containers/CreateLabel';
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack';
 
-const AddLabel = ({ closePopup, patchChanges }) => {
+const AddLabel = ({ closePopup, patchChanges, labels }) => {
   const [screen, setScreen] = useState('chooseLabel');
 
   const handleScreenChange = () => {
@@ -32,6 +32,7 @@ const AddLabel = ({ closePopup, patchChanges }) => {
           <ChooseLabels
             handleScreenChange={handleScreenChange}
             patchChanges={patchChanges}
+            labels={labels}
           />
         ) : (
           <CreateLabel closePopup={closePopup} />
