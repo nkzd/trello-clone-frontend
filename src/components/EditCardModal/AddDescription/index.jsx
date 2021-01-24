@@ -13,7 +13,6 @@ const AddDescription = ({ closePopup, patchChanges }) => {
     closePopup();
   };
 
-  //TODO validacija
   const handleSubmit = (event) => {
     event.preventDefault();
     patchChanges({ description: inputValue });
@@ -22,13 +21,13 @@ const AddDescription = ({ closePopup, patchChanges }) => {
   };
 
   return (
-    <AddLabelWrapper>
-      <AddLabelHeader>
+    <AddDescriptionWrapper>
+      <AddDescriptionHeader>
         <FlexPlaceholder />
         <Subtitle>Description</Subtitle>
         <XButton onClick={handleClose} />
-      </AddLabelHeader>
-      <FormWrapper>
+      </AddDescriptionHeader>
+      <div>
         <form onSubmit={handleSubmit}>
           <StyledTextArea
             placeholder='Add a more detailed description...'
@@ -42,19 +41,12 @@ const AddDescription = ({ closePopup, patchChanges }) => {
             <RectangularButton text='Delete Description' color='#cf513d' />
           </div>
         </form>
-      </FormWrapper>
-    </AddLabelWrapper>
+      </div>
+    </AddDescriptionWrapper>
   );
 };
 
-const FormWrapper = styled.div`
-  border-radius: 5px;
-  ${XButton} {
-    margin-left: 5px;
-  }
-`;
-
-const AddLabelWrapper = styled.div`
+const AddDescriptionWrapper = styled.div`
   box-sizing: border-box;
   padding: 12px;
   width: 310px;
@@ -65,7 +57,7 @@ const FlexPlaceholder = styled.div`
   width: 26px;
 `;
 
-const AddLabelHeader = styled.div`
+const AddDescriptionHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
