@@ -37,7 +37,11 @@ const AddDescription = ({ closePopup, patchChanges }) => {
             rows={7}
           />
           <div>
-            <RectangularButton text='Add Description' color='#5aac44' />
+            <RectangularButton
+              text='Add Description'
+              color='#5aac44'
+              type='submit'
+            />
             <RectangularButton text='Delete Description' color='#cf513d' />
           </div>
         </form>
