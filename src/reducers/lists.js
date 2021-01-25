@@ -20,6 +20,9 @@ const {
   DELETE_CARD_REQUEST,
   DELETE_CARD_SUCCESS,
   DELETE_CARD_FAILURE,
+  DELETE_LABEL_REQUEST,
+  DELETE_LABEL_SUCCESS,
+  DELETE_LABEL_FAILURE,
 } = require('./actions');
 
 const lists = (
@@ -154,7 +157,27 @@ const lists = (
     }
     case DELETE_CARD_FAILURE:
       return { ...state, isFetching: false };
-
+    case DELETE_LABEL_REQUEST:
+      return { ...state, isFetching: true };
+    case DELETE_LABEL_FAILURE:
+      return { ...state, isFetching: false };
+    case DELETE_LABEL_SUCCESS: {
+      const labelId = action.payload;
+      const listsCopy = [...state.items];
+      listsCopy.forEach((list) => {
+        list.cards.forEach((card) => {
+          const index = card.labels.indexOf(labelId);
+          if (index !== -1) {
+            card.labels.splice(index, 1);
+          }
+        });
+      });
+      return {
+        ...state,
+        isFetching: false,
+        items: listsCopy,
+      };
+    }
     default:
       return state;
   }
