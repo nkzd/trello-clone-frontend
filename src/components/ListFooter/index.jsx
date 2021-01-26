@@ -37,7 +37,7 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
           onChange={handleInputChange}
         />
         <div>
-          <RectangularButton text='Add List' color='#5aac44' />
+          <RectangularButton text='Add Card' color='#5aac44' />
           <XButton onClick={handleCardClick} />
         </div>
       </form>
