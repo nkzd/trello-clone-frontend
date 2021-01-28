@@ -143,13 +143,13 @@ const AddToCardWrappper = styled.div`
   flex-direction: row;
   align-items: center;
   span {
-    color: #5e6c84;
+    color: ${(props) => props.theme.modalTextGrey};
     font-size: 12px;
   }
 `;
 
 const IconWrapper = styled.div`
-  color: #5e6c84;
+  color: ${(props) => props.theme.modalTextGrey};
   cursor: pointer;
   span {
     margin-left: 5px;

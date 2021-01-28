@@ -12,7 +12,7 @@ const ModalDueDate = ({ dueDate }) => {
 
 const DueDateWrapper = styled.div`
   p {
-    color: #5e6c84;
+    color: ${(props) => props.theme.modalTextGrey};
     font-size: 12px;
   }
 `;

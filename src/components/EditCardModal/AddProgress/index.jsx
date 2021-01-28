@@ -137,7 +137,7 @@ const AddProgressHeader = styled.div`
 `;
 
 const Subtitle = styled.span`
-  color: #5e6c84;
+  color: ${(props) => props.theme.modalTextGrey};
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.04em;

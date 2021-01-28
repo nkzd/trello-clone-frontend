@@ -11,12 +11,12 @@ const ModalDescription = ({ description }) => {
 };
 
 const SubtitleWrapper = styled.p`
-  color: #5e6c84;
+  color: ${(props) => props.theme.modalTextGrey};
   font-size: 12px;
 `;
 
 const DescriptionWrapper = styled.span`
-  color: #5e6c84;
+  color: ${(props) => props.theme.modalTextGrey};
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;

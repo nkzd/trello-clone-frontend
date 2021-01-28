@@ -6,6 +6,7 @@ import rootReducer from './reducers';
 import './index.css';
 import MainPage from './containers/MainPage';
 import { fetchLists, fetchLabels } from './reducers/thunks';
+import { ThemeProvider } from 'styled-components';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -21,9 +22,15 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <MainPage />
+      <ThemeProvider theme={theme}>
+        <MainPage />
+      </ThemeProvider>
     </Provider>
   );
+};
+
+const theme = {
+  modalTextGrey: '#5e6c84',
 };
 
 export default App;

@@ -81,7 +81,7 @@ const NameInput = styled.div`
 
 const Subtitle = styled.div`
   font-weight: 700;
-  color: #5e6c84;
+  color: ${props => props.theme.modalTextGrey};
   font-size: 12px;
   line-height: 16px;
   margin-top: 12px;

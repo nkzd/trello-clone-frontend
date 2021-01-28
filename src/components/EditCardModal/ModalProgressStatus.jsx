@@ -16,7 +16,7 @@ const ModalProgressStatus = ({ progressStatus }) => {
 
 const ModalProgressStatusWrapper = styled.div`
   p { 
-    color: #5e6c84;
+    color: ${props => props.theme.modalTextGrey};
     font-size: 12px;
   }
 `;
@@ -26,6 +26,9 @@ const ProgressStatusWrapper = styled.div`
   align-items: center;
   span:first-child {
     margin-right: 5px;
+  }
+  span {
+    color: ${props => props.theme.modalTextGrey};
   }
 `;
 
