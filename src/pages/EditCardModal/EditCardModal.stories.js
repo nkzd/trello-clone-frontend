@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import React from 'react';
 import EditCardModal from './index';
 
@@ -8,21 +9,15 @@ export default {
 
 const Template = (args) => <EditCardModal {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  listName: 'stagod',
-  name: 'ma ide gas bre',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices porttitor dui et dictum. Vivamus urna tellus, pharetra ut risus et, congue venenatis risus. Nunc dapibus fringilla lacus sed vestibulum. Sed pellentesque est at magna volutpat vulputate ut a lacus.',
+export const Default = Template.bind({});
+Default.args = {
+  listName: '5f78411d5cd72c14cc947259',
+  listId: '5f78411d5cd72c14cc947259',
+  _id: '5f788feba88e353396e54dc3',
+  name: 'With labels',
+  description: 'Some description',
   dueDate: '1603651162',
   progressStatus: 'Not Started',
-  labels: [
-    { name: 'Whatever', color: 'lightcoral' },
-    { name: 'A', color: 'lightblue' },
-    { color: 'lightgreen' },
-    {
-      name: 'quick brown fox jumps over a lazy dog',
-      color: 'lightgray',
-    },
-    { name: 'bo problemo', color: 'lightpink' },
-  ],
+  labels: [1, 2, 3, 4, 5],
+  deleteCard: action('deleteCard'),
 };
