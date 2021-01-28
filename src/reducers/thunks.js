@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { cloneDeep } from 'lodash';
 import {
   addCardFailure,
   addCardRequest,
@@ -27,6 +28,9 @@ import {
   createLabelRequest,
   createLabelSuccess,
   createLabelFailure,
+  reorderCardsRequest,
+  reorderCardsSuccess,
+  reorderCardsFailure,
 } from './actions';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
@@ -143,5 +147,30 @@ export function fetchLabels() {
       .get(`/label`)
       .then((response) => dispatch(requestLabelsSuccess(response)))
       .catch((error) => dispatch(requestLabelsFailure(error)));
+  };
+}
+
+export function reorderCards({ source, destination }) {
+  if (!destination || !source) {
+    return { type: 'REORDER_NOP' };
+  }
+
+  const { droppableId: sourceId, index: sourceIndex } = source;
+  const { droppableId: destinationId, index: destinationIndex } = destination;
+  const change = {
+    sourceId,
+    destinationId,
+    sourceIndex,
+    destinationIndex,
+  };
+  return (dispatch, getState) => {
+    const previousLists = cloneDeep(getState().lists.items);
+    dispatch(reorderCardsRequest(change));
+    return axios
+      .post(`/list/reorderCards`, change)
+      .then(() => dispatch(reorderCardsSuccess()))
+      .catch((error) => {
+        dispatch(reorderCardsFailure(previousLists));
+      });
   };
 }

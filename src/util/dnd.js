@@ -6,16 +6,21 @@ const reorder = (cards, startIndex, endIndex) => {
   return result;
 };
 
-const move = (source, destination, droppableSource, droppableDestination) => {
+const move = (
+  source,
+  destination,
+  { sourceId, sourceIndex },
+  { destinationId, destinationIndex }
+) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
-  const [removed] = sourceClone.splice(droppableSource.index, 1);
+  const [removed] = sourceClone.splice(sourceIndex, 1);
 
-  destClone.splice(droppableDestination.index, 0, removed);
+  destClone.splice(destinationIndex, 0, removed);
 
   const result = {};
-  result[droppableSource.droppableId] = sourceClone;
-  result[droppableDestination.droppableId] = destClone;
+  result[sourceId] = sourceClone;
+  result[destinationId] = destClone;
 
   return result;
 };

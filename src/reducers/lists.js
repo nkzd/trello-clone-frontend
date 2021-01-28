@@ -23,6 +23,9 @@ const {
   DELETE_LABEL_REQUEST,
   DELETE_LABEL_SUCCESS,
   DELETE_LABEL_FAILURE,
+  REORDER_CARDS_SUCCESS,
+  REORDER_CARDS_FAILURE,
+  REORDER_CARDS_REQUEST,
 } = require('./actions');
 
 const lists = (
@@ -39,50 +42,57 @@ const lists = (
       return { ...state, isFetching: false };
     case REQUEST_LISTS_SUCCESS:
       return { ...state, isFetching: false, items: action.payload.data };
-    case REORDER_CARDS: {
-      const { source, destination } = action.payload;
 
-      if (!destination) {
+    case REORDER_CARDS_SUCCESS:
+      return { ...state, isFetching: false };
+    case REORDER_CARDS_FAILURE:
+      return { ...state, isFetching: false, items: action.payload };
+    case REORDER_CARDS_REQUEST: {
+      const {
+        sourceId,
+        destinationId,
+        sourceIndex,
+        destinationIndex,
+      } = action.payload;
+
+      if (!destinationId) {
         return state;
       }
-      const sInd = source.droppableId;
-      const dInd = destination.droppableId;
 
       const sourceListIndex = state.items.findIndex(
-        (list) => list._id === sInd
+        (list) => list._id === sourceId
       );
       const destinationListIndex = state.items.findIndex(
-        (list) => list._id === dInd
+        (list) => list._id === destinationId
       );
 
       const listsCopy = [...state.items];
-      if (sInd === dInd) {
+      if (sourceId === destinationId) {
         const reorderedCards = reorder(
           listsCopy[sourceListIndex].cards,
-          source.index,
-          destination.index
+          sourceIndex,
+          destinationIndex
         );
 
         listsCopy[sourceListIndex].cards = reorderedCards;
-
         return { ...state, items: listsCopy };
       } else {
         const result = move(
           listsCopy[sourceListIndex].cards,
           listsCopy[destinationListIndex].cards,
-          source,
-          destination
+          { sourceId, sourceIndex },
+          { destinationId, destinationIndex }
         );
 
-        listsCopy[sourceListIndex].cards = result[sInd];
-        listsCopy[destinationListIndex].cards = result[dInd];
+        listsCopy[sourceListIndex].cards = result[sourceId];
+        listsCopy[destinationListIndex].cards = result[destinationId];
 
-        return { ...state, items: listsCopy };
+        return { ...state, items: listsCopy, isFetching: true };
       }
     }
+
     case ADD_CARD_REQUEST:
       return { ...state, isFetching: true };
-
     case ADD_CARD_SUCCESS: {
       const { listId, card } = action.payload;
       const listsCopy = [...state.items];
@@ -95,7 +105,6 @@ const lists = (
 
     case EDIT_CARD_REQUEST:
       return { ...state, isFetching: true };
-
     case EDIT_CARD_SUCCESS: {
       const { listId, card } = action.payload;
       const listsCopy = [...state.items];
@@ -111,7 +120,6 @@ const lists = (
 
     case ADD_LIST_REQUEST:
       return { ...state, isFetching: true };
-
     case ADD_LIST_SUCCESS: {
       const list = action.payload;
       return { ...state, isFetching: false, items: [...state.items, list] };
@@ -121,7 +129,6 @@ const lists = (
 
     case DELETE_LIST_REQUEST:
       return { ...state, isFetching: true };
-
     case DELETE_LIST_SUCCESS: {
       const listId = action.payload;
       const listsCopy = [...state.items];
@@ -136,7 +143,6 @@ const lists = (
 
     case DELETE_CARD_REQUEST:
       return { ...state, isFetching: true };
-
     case DELETE_CARD_SUCCESS: {
       const { listId, cardId } = action.payload;
 
@@ -157,6 +163,7 @@ const lists = (
     }
     case DELETE_CARD_FAILURE:
       return { ...state, isFetching: false };
+
     case DELETE_LABEL_REQUEST:
       return { ...state, isFetching: true };
     case DELETE_LABEL_FAILURE:

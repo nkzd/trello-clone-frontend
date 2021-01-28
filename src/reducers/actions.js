@@ -216,3 +216,26 @@ export const reorderCards = (payload) => {
     payload,
   };
 };
+
+export const REORDER_CARDS_REQUEST = 'REORDER_CARDS_REQUEST';
+export const reorderCardsRequest = (payload) => {
+  return {
+    type: REORDER_CARDS_REQUEST,
+    payload,
+  };
+};
+
+export const REORDER_CARDS_FAILURE = 'REORDER_CARDS_FAILURE';
+export const reorderCardsFailure = (payload) => {
+  return {
+    type: REORDER_CARDS_FAILURE,
+    payload,
+  };
+};
+
+export const REORDER_CARDS_SUCCESS = 'REORDER_CARDS_SUCCESS';
+export const reorderCardsSuccess = () => {
+  return {
+    type: REORDER_CARDS_SUCCESS,
+  };
+};

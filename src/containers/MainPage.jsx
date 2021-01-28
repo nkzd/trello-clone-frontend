@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import MainPage from '../pages/MainPage';
-import { reorderCards } from '../reducers/actions';
-//items je premapiran u lists na krajnjoj komponenti
+import { reorderCards } from '../reducers/thunks';
+
 const mapStateToProps = (state) => {
   return {
     lists: state.lists.items,
