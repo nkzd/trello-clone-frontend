@@ -20,7 +20,7 @@ const CardNameWrapper = styled.div`
   line-height: 24px;
 `;
 const ListNameWrapper = styled.div`
-    color: ${props => props.theme.modalTextGrey};
+  color: ${props => props.theme.modalTextGrey};
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;

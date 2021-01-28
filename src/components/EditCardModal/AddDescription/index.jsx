@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import XButton from '../../XButton';
 import RectangularButton from '../../RectanguralButton';
+import AddAttributeWrapper from '../common/AddAttributeWrapper';
+import AddAttributeHeader from '../common/AddAttributeHeader';
+import FlexPlaceholder from '../common/FlexPlaceholder';
+import AddAttributeSubtitle from '../common/AddAttributeSubtitle';
 
 const AddDescription = ({ closePopup, patchChanges, description }) => {
   const [inputValue, setInputValue] = useState(description);
@@ -28,12 +32,12 @@ const AddDescription = ({ closePopup, patchChanges, description }) => {
   };
 
   return (
-    <AddDescriptionWrapper>
-      <AddDescriptionHeader>
+    <AddAttributeWrapper width='310px'>
+      <AddAttributeHeader>
         <FlexPlaceholder />
-        <Subtitle>Description</Subtitle>
+        <AddAttributeSubtitle>Description</AddAttributeSubtitle>
         <XButton onClick={handleClose} />
-      </AddDescriptionHeader>
+      </AddAttributeHeader>
       <div>
         <form onSubmit={handleSubmit}>
           <StyledTextArea
@@ -58,38 +62,9 @@ const AddDescription = ({ closePopup, patchChanges, description }) => {
           </ButtonsWrapper>
         </form>
       </div>
-    </AddDescriptionWrapper>
+    </AddAttributeWrapper>
   );
 };
-
-const AddDescriptionWrapper = styled.div`
-  box-sizing: border-box;
-  padding: 12px;
-  width: 310px;
-  background-color: white;
-`;
-
-const FlexPlaceholder = styled.div`
-  width: 26px;
-`;
-
-const AddDescriptionHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-  margin-bottom: 10px;
-`;
-
-const Subtitle = styled.span`
-    color: ${props => props.theme.modalTextGrey};
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 16px;
-  text-transform: uppercase;
-`;
 
 const StyledTextArea = styled.textarea`
   box-sizing: border-box;

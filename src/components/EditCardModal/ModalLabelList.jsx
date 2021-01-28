@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Label from '../Label';
+import ModalAttributeTitle from './common/ModalAttributeWrapper';
 
 const ModalLabelList = ({ allLabels, labels }) => {
   return (
-    <ModalLabelListWrapper>
-      <p>LABEL LIST</p>
+    <div>
+      <ModalAttributeTitle>LABEL LIST</ModalAttributeTitle>
       <LabelListWrapper>
         {labels.map((labelId) => {
           const resultLabel = allLabels.find((label) => label._id === labelId);
@@ -19,16 +20,9 @@ const ModalLabelList = ({ allLabels, labels }) => {
           ) : null;
         })}
       </LabelListWrapper>
-    </ModalLabelListWrapper>
+    </div>
   );
 };
-
-const ModalLabelListWrapper = styled.div`
-  p {
-    color: ${props => props.theme.modalTextGrey};
-    font-size: 12px;
-  }
-`;
 
 const LabelListWrapper = styled.div`
   display: flex;

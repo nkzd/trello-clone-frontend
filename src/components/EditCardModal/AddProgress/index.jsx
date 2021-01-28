@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import RectangularButton from '../../RectanguralButton';
 import ProgressStatus from '../../Statuses/ProgressStatus';
 import XButton from '../../XButton';
+import AddAttributeHeader from '../common/AddAttributeHeader';
+import AddAttributeSubtitle from '../common/AddAttributeSubtitle';
+import AddAttributeWrapper from '../common/AddAttributeWrapper';
+import FlexPlaceholder from '../common/FlexPlaceholder';
 
 const AddProgress = ({ closePopup, patchChanges, progressStatus }) => {
   const [selectedValue, setSelectedValue] = useState(progressStatus);
@@ -28,12 +32,12 @@ const AddProgress = ({ closePopup, patchChanges, progressStatus }) => {
   };
 
   return (
-    <AddProgressWrapper>
-      <AddProgressHeader>
+    <AddAttributeWrapper>
+      <AddAttributeHeader>
         <FlexPlaceholder />
-        <Subtitle>Progress</Subtitle>
+        <AddAttributeSubtitle>Progress</AddAttributeSubtitle>
         <XButton onClick={handleClose} />
-      </AddProgressHeader>
+      </AddAttributeHeader>
       <FormWrapper>
         <form onSubmit={handleSubmit}>
           <RadioWrapper>
@@ -112,38 +116,9 @@ const AddProgress = ({ closePopup, patchChanges, progressStatus }) => {
           </ButtonsWrapper>
         </form>
       </FormWrapper>
-    </AddProgressWrapper>
+    </AddAttributeWrapper>
   );
 };
-
-const AddProgressWrapper = styled.div`
-  box-sizing: border-box;
-  padding: 12px;
-  width: 292px;
-  background-color: white;
-`;
-
-const FlexPlaceholder = styled.div`
-  width: 26px;
-`;
-
-const AddProgressHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-  margin-bottom: 10px;
-`;
-
-const Subtitle = styled.span`
-  color: ${(props) => props.theme.modalTextGrey};
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 16px;
-  text-transform: uppercase;
-`;
 
 const RadioWrapper = styled.div`
   display: grid;

@@ -2,24 +2,19 @@ import React from 'react';
 
 import styled from 'styled-components';
 import ProgressStatus from '../Statuses/ProgressStatus';
+import ModalAttributeTitle from './common/ModalAttributeWrapper';
 const ModalProgressStatus = ({ progressStatus }) => {
   return (
-    <ModalProgressStatusWrapper>
-      <p>PROGRESS STATUS</p>
+    <div>
+      <ModalAttributeTitle>PROGRESS STATUS</ModalAttributeTitle>
       <ProgressStatusWrapper>
         <span>{progressStatus}</span>
         <ProgressStatus progressStatus={progressStatus} />
       </ProgressStatusWrapper>
-    </ModalProgressStatusWrapper>
+    </div>
   );
 };
 
-const ModalProgressStatusWrapper = styled.div`
-  p { 
-    color: ${props => props.theme.modalTextGrey};
-    font-size: 12px;
-  }
-`;
 const ProgressStatusWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -28,7 +23,7 @@ const ProgressStatusWrapper = styled.div`
     margin-right: 5px;
   }
   span {
-    color: ${props => props.theme.modalTextGrey};
+    color: ${(props) => props.theme.modalTextGrey};
   }
 `;
 

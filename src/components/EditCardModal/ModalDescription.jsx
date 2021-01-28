@@ -1,19 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import ModalAttributeTitle from './common/ModalAttributeWrapper';
 
 const ModalDescription = ({ description }) => {
   return (
     <div>
-      <SubtitleWrapper>DESCRIPTION</SubtitleWrapper>
+      <ModalAttributeTitle>DESCRIPTION</ModalAttributeTitle>
       <DescriptionWrapper>{description}</DescriptionWrapper>
     </div>
   );
 };
-
-const SubtitleWrapper = styled.p`
-  color: ${(props) => props.theme.modalTextGrey};
-  font-size: 12px;
-`;
 
 const DescriptionWrapper = styled.span`
   color: ${(props) => props.theme.modalTextGrey};

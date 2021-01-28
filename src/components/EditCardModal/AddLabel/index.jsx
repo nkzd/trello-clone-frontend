@@ -5,6 +5,10 @@ import XButton from '../../XButton';
 import ChooseLabels from '../../../containers/ChooseLabels';
 import CreateLabel from '../../../containers/CreateLabel';
 import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack';
+import AddAttributeWrapper from '../common/AddAttributeWrapper';
+import AddAttributeHeader from '../common/AddAttributeHeader';
+import FlexPlaceholder from '../common/FlexPlaceholder';
+import AddAttributeSubtitle from '../common/AddAttributeSubtitle';
 
 const AddLabel = ({ closePopup, patchChanges, labels }) => {
   const [screen, setScreen] = useState('chooseLabel');
@@ -14,19 +18,19 @@ const AddLabel = ({ closePopup, patchChanges, labels }) => {
   };
 
   return (
-    <AddLabelWrapper>
-      <AddLabelHeader>
+    <AddAttributeWrapper>
+      <AddAttributeHeader>
         {screen === 'chooseLabel' ? (
           <FlexPlaceholder />
         ) : (
           <ArrowBackButton onClick={handleScreenChange} />
         )}
 
-        <Subtitle>
+        <AddAttributeSubtitle>
           {screen === 'chooseLabel' ? 'Labels' : 'Create Label'}
-        </Subtitle>
+        </AddAttributeSubtitle>
         <XButton onClick={closePopup} />
-      </AddLabelHeader>
+      </AddAttributeHeader>
       <ScreenWrapper>
         {screen === 'chooseLabel' ? (
           <ChooseLabels
@@ -38,38 +42,9 @@ const AddLabel = ({ closePopup, patchChanges, labels }) => {
           <CreateLabel closePopup={closePopup} />
         )}
       </ScreenWrapper>
-    </AddLabelWrapper>
+    </AddAttributeWrapper>
   );
 };
-
-const Subtitle = styled.span`
-    color: ${props => props.theme.modalTextGrey};
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 16px;
-  text-transform: uppercase;
-`;
-
-const AddLabelWrapper = styled.div`
-  box-sizing: border-box;
-  padding: 12px;
-  width: 292px;
-  background-color: white;
-`;
-
-const AddLabelHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-  margin-bottom: 10px;
-`;
-
-const FlexPlaceholder = styled.div`
-  width: 26px;
-`;
 
 const ArrowBackButton = styled(ArrowBack)`
   width: 18px;
