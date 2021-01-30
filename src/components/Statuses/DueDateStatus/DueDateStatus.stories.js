@@ -3,24 +3,12 @@ import DueDateStatus from './index';
 
 export default {
   title: 'Statuses/DueDateStatus',
-  component: DueDateStatus,
-  argTypes: {
-    color: { control: 'color' },
-  },
+  component: DueDateStatus
 };
 
 const Template = (args) => <DueDateStatus {...args} />;
 
-export const Gray = Template.bind({});
-Gray.args = {
-  size: '18',
-  color: '#AAAAAA',
-  timestamp: '1603651162000',
-};
-
-export const Silver = Template.bind({});
-Silver.args = {
-  size: '18',
-  color: '#DDDDDD',
+export const Default = Template.bind({});
+Default.args = {
   timestamp: '1603651162000',
 };

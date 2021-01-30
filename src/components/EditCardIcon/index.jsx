@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     background-color: #EEEEEE;
   }
   &:hover ${EditIcon} {
-    color: #616161;
+    color: ${(props) => props.theme.iconGrey};
   }
 `;
 

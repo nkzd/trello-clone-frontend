@@ -54,7 +54,7 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
 };
 
 const PlusIcon = styled(Plus)`
-  color: '#616161';
+  color: ${(props) => props.theme.iconGrey};
   margin-right: 5px;
 `;
 

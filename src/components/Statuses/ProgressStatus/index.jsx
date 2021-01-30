@@ -55,7 +55,7 @@ const ProgressStatus = ({ progressStatus }) => {
 
 export const IconStyleWrapper = styled.span`
   ${StyledIconBase} {
-    color: #616161;
+    color: ${(props) => props.theme.iconGrey};
   }
 `;
 

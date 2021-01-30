@@ -36,7 +36,7 @@ const HeaderBarWrapper = styled.div`
     ${DotsIcon} {
         margin-left: auto;
         &:hover {
-            color: #616161;
+            color: ${(props) => props.theme.iconGrey};
         }
     }
 `;
