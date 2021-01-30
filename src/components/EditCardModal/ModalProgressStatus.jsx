@@ -24,6 +24,7 @@ const ProgressStatusWrapper = styled.div`
   }
   span {
     color: ${(props) => props.theme.modalTextGrey};
+    font-size: 14px;
   }
 `;
 
