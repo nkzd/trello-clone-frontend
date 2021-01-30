@@ -1,12 +1,20 @@
 import React from 'react';
 import AddToCard from './AddToCard';
+import { mockLists } from '../../../.storybook/mocks';
 
 export default {
   title: 'Modal/AddToCard',
   component: AddToCard,
 };
 
-const Template = (args) => <AddToCard {...args} />;
+const Template = (args) => (
+  <AddToCard
+    {...args}
+    lists={mockLists.items}
+    listId='5f78411d5cd72c14cc947259'
+    cardId='5f788feba88e353396e54dc3'
+  />
+);
 
 export const Labels = Template.bind({});
 Labels.args = {
