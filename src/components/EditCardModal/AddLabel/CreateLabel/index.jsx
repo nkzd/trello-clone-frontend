@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import RectangularButton from '../../../RectanguralButton';
 import ColorCheckbox from '../ColorCheckbox';
 
-const CreateLabel = ({ closePopup, createLabel }) => {
+const CreateLabel = ({ createLabel, handleScreenChange }) => {
   const [inputValue, setInputValue] = useState('');
   const [pickedColor, setPickedColor] = useState('#61bd4f');
 
@@ -27,7 +27,7 @@ const CreateLabel = ({ closePopup, createLabel }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     createLabel({ name: inputValue, color: pickedColor });
-    closePopup();
+    handleScreenChange();
   };
 
   const handleColorClick = (color) => {

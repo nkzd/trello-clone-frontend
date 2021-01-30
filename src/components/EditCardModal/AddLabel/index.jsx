@@ -39,7 +39,10 @@ const AddLabel = ({ closePopup, patchChanges, labels }) => {
             labels={labels}
           />
         ) : (
-          <CreateLabel closePopup={closePopup} />
+          <CreateLabel
+            closePopup={closePopup}
+            handleScreenChange={handleScreenChange}
+          />
         )}
       </div>
     </AddAttributeWrapper>
