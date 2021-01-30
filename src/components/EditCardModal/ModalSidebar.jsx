@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import AddToCard from '../../containers/AddToCard';
+import ModalAttributeTitle from './common/ModalAttributeWrapper';
 
 const ModalSidebar = ({ listId, cardId }) => {
   return (
-    <ModalSidebarWrapper>
-      <p>ADD TO CARD</p>
+    <div>
+      <StyledModalAttributeTitle>ADD TO CARD</StyledModalAttributeTitle>
       <AddToWrapper>
         <AddToCard type='description' listId={listId} cardId={cardId} />
         <AddToCard type='duedate' listId={listId} cardId={cardId} />
         <AddToCard type='progress' listId={listId} cardId={cardId} />
         <AddToCard type='labels' listId={listId} cardId={cardId} />
       </AddToWrapper>
-    </ModalSidebarWrapper>
+    </div>
   );
 };
 
@@ -23,13 +24,11 @@ const AddToWrapper = styled.div`
   & > *:first-child {
     margin-top: 0px;
   }
+  overflow: hidden;
 `;
-const ModalSidebarWrapper = styled.div`
-  p {
-    color: ${props => props.theme.modalTextGrey};
-    font-size: 12px;
-    font-weight: 500;
-  }
-`;
+const StyledModalAttributeTitle = styled(ModalAttributeTitle)`
+  font-weight: 500;
+`
+
 
 export default ModalSidebar;
