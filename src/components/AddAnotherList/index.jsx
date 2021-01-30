@@ -29,6 +29,7 @@ const AddAnotherList = ({ addList }) => {
           type='text'
           value={inputValue}
           onChange={handleInputChange}
+          autoFocus={true}
         />
         <div>
           <RectangularButton text='Add List' color='#5aac44' />

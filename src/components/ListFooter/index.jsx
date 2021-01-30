@@ -35,6 +35,7 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
           type='text'
           value={inputValue}
           onChange={handleInputChange}
+          autoFocus={true}
         />
         <div>
           <RectangularButton text='Add Card' color='#5aac44' />
