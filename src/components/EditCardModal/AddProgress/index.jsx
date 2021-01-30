@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import RectangularButton from '../../RectanguralButton';
-import ProgressStatus from '../../Statuses/ProgressStatus';
+import ProgressStatus from '../../Attributes/ProgressStatus';
 import XButton from '../../XButton';
 import AddAttributeHeader from '../common/AddAttributeHeader';
 import AddAttributeSubtitle from '../common/AddAttributeSubtitle';

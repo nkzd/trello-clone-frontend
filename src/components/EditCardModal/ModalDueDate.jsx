@@ -1,12 +1,12 @@
 import React from 'react';
-import DueDateStatus from '../Statuses/DueDateStatus';
+import DueDate from '../Attributes/DueDate';
 import ModalAttributeTitle from './common/ModalAttributeWrapper';
 
 const ModalDueDate = ({ dueDate }) => {
   return (
     <div>
       <ModalAttributeTitle>DUE DATE</ModalAttributeTitle>
-      <DueDateStatus timestamp={dueDate} />
+      <DueDate timestamp={dueDate} />
     </div>
   );
 };

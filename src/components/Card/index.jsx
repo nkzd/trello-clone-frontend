@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Statuses from '../Statuses';
+import Attributes from '../Attributes';
 import LabelList from '../../containers/LabelList';
 
 const Card = ({ labels, name, progressStatus, description, dueDate }) => (
   <CardWrapper>
     {labels ? <LabelList labels={labels} /> : null}
     <NameWrapper>{name}</NameWrapper>
-    <Statuses
+    <Attributes
       description={description}
       progressStatus={progressStatus}
       dueDate={dueDate}

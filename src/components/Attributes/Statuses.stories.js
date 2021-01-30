@@ -1,9 +1,9 @@
 import React from 'react';
-import Statuses from './index';
+import Attributes from './index';
 
 export default {
-  title: 'Statuses',
-  component: Statuses,
+  title: 'Attributes',
+  component: Attributes,
   argTypes: {
     description: {
       control: {
@@ -31,7 +31,7 @@ export default {
   },
 };
 
-const Template = (args) => <Statuses {...args} />;
+const Template = (args) => <Attributes {...args} />;
 
 export const One = Template.bind({});
 One.args = {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import ProgressStatus from '../Statuses/ProgressStatus';
+import ProgressStatus from '../Attributes/ProgressStatus';
 import ModalAttributeTitle from './common/ModalAttributeWrapper';
 const ModalProgressStatus = ({ progressStatus }) => {
   return (
