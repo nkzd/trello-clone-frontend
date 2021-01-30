@@ -35,7 +35,7 @@ const CreateLabel = ({ closePopup, createLabel }) => {
   };
 
   return (
-    <CreateLabelWrapper>
+    <div>
       <form onSubmit={handleSubmit}>
         <NameInput>
           <Subtitle>Name</Subtitle>
@@ -56,11 +56,9 @@ const CreateLabel = ({ closePopup, createLabel }) => {
           <RectangularButton text='Add Label' color='#5aac44' type='submit' />
         </FooterWrapper>
       </form>
-    </CreateLabelWrapper>
+    </div>
   );
 };
-
-const CreateLabelWrapper = styled.div``;
 
 const NameInput = styled.div`
   input {

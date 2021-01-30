@@ -29,7 +29,7 @@ const ChooseLabels = ({
   };
 
   return (
-    <ChooseLabelsWrapper>
+    <div>
       <LabelList>
         {allLabels.map((label) => (
           <LabelRow key={label._id}>
@@ -46,11 +46,9 @@ const ChooseLabels = ({
       <CreateNewLabelButton type='button' onClick={handleScreenChange}>
         Create new label
       </CreateNewLabelButton>
-    </ChooseLabelsWrapper>
+    </div>
   );
 };
-
-const ChooseLabelsWrapper = styled.div``;
 
 const LabelList = styled.div`
   & > * {

@@ -31,7 +31,7 @@ const AddLabel = ({ closePopup, patchChanges, labels }) => {
         </AddAttributeSubtitle>
         <XButton onClick={closePopup} />
       </AddAttributeHeader>
-      <ScreenWrapper>
+      <div>
         {screen === 'chooseLabel' ? (
           <ChooseLabels
             handleScreenChange={handleScreenChange}
@@ -41,7 +41,7 @@ const AddLabel = ({ closePopup, patchChanges, labels }) => {
         ) : (
           <CreateLabel closePopup={closePopup} />
         )}
-      </ScreenWrapper>
+      </div>
     </AddAttributeWrapper>
   );
 };
@@ -55,7 +55,5 @@ const ArrowBackButton = styled(ArrowBack)`
   }
   cursor: pointer;
 `;
-
-const ScreenWrapper = styled.div``;
 
 export default AddLabel;

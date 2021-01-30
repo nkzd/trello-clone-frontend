@@ -3,16 +3,15 @@ import styled from 'styled-components';
 
 const ModalNames = ({ name, listName }) => {
   return (
-    <NamesWrapper>
+    <div>
       <CardNameWrapper>{name}</CardNameWrapper>
       <ListNameWrapper>
         in list <u>{listName}</u>
       </ListNameWrapper>
-    </NamesWrapper>
+    </div>
   );
 };
 
-const NamesWrapper = styled.div``;
 const CardNameWrapper = styled.div`
   font-size: 20px;
   font-weight: 600;
