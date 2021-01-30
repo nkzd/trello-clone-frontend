@@ -48,7 +48,7 @@ const EditCardModal = ({
 
 const EditCardModalWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr minmax(150px, 25%);
+  grid-template-columns: 1fr 25%;
   grid-auto-rows: min-content;
   background-color: #f4f5f7;
   padding: 10px;
