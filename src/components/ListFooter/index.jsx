@@ -60,7 +60,7 @@ const PlusIcon = styled(Plus)`
 
 const FormWrapper = styled.div`
   width: 262px;
-  background-color: #ebecf0;
+  background-color: ${(props) => props.theme.listBackgroundLight};
   padding: 5px;
   border-radius: 5px;
   ${XButton} {

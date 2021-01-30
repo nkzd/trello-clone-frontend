@@ -29,8 +29,9 @@ const App = () => {
   );
 };
 
-const theme = {
+export const theme = {
   modalTextGrey: '#5e6c84',
+  listBackgroundLight: '#ebecf0',
 };
 
 export default App;

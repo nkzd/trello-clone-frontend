@@ -66,7 +66,7 @@ const AddAnotherListWrapper = styled.div`
 
 const FormWrapper = styled.div`
   width: 272px;
-  background-color: #ebecf0;
+  background-color: ${(props) => props.theme.listBackgroundLight};
   padding: 5px;
   border-radius: 5px;
   ${XButton} {

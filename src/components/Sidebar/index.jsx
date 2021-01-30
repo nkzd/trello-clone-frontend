@@ -41,7 +41,7 @@ const Sidebar = ({ setColor, setImage, closeSidebar }) => {
 
 const SidebarWrapper = styled.div`
   box-sizing: border-box;
-  background-color: #ebecf0;
+  background-color: ${(props) => props.theme.listBackgroundLight};
   width: 340px;
   hr {
     margin: 0px;

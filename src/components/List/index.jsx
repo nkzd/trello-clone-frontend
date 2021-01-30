@@ -71,7 +71,7 @@ const ListWrapper = styled.div`
   flex: 0 0 272px;
   width: 272px;
   margin: 0 5px;
-  background-color: #ebecf0;
+  background-color: ${(props) => props.theme.listBackgroundLight};
   border-radius: 5px;
   display: flex;
   flex-direction: column;

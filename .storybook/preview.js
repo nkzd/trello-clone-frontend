@@ -2,6 +2,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import {theme} from '../src/App'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -71,10 +72,6 @@ const mockedStore = {
   },
   subscribe: () => 0,
   dispatch: action('dispatch'),
-};
-
-const theme = {
-  modalTextGrey: '#5e6c84',
 };
 
 export const decorators = [
