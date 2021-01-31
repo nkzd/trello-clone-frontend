@@ -12,7 +12,7 @@ import {
   bg4,
   bg5,
   bg6,
-} from '../../util/constants';
+} from '../../util/unsplashConstants';
 
 const Sidebar = ({ setColor, setImage, closeSidebar }) => {
   return (

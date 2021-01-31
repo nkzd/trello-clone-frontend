@@ -4,10 +4,11 @@ import HeaderBar from '../../components/HeaderBar';
 import List from '../../components/List';
 import AddAnotherList from '../../containers/AddAnotherList';
 import Sidebar from '../../components/Sidebar';
-import { grayColor } from '../../util/constants';
+import { grayColor } from '../../util/unsplashConstants';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-//povezi komponentu vjerovatno
 const MainPage = ({ lists = [], reorderCards }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [background, setBackground] = useState({
@@ -52,6 +53,17 @@ const MainPage = ({ lists = [], reorderCards }) => {
           />
         </SidebarWrapper>
       </ListsWrapper>
+      <ToastContainer
+        position='bottom-left'
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </MainPageWrapper>
   );
 };

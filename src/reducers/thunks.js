@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { cloneDeep } from 'lodash';
+import { toast } from 'react-toastify';
 import {
   addCardFailure,
   addCardRequest,
@@ -32,7 +33,6 @@ import {
   reorderCardsSuccess,
   reorderCardsFailure,
 } from './actions';
-
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 export function addCard({ listId, name }) {
@@ -174,3 +174,31 @@ export function reorderCards({ source, destination }) {
       });
   };
 }
+
+const errorNotificaton = (error) => {
+  toast.error(error, {
+    position: 'bottom-left',
+    autoClose: 4000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+};
+
+axios.interceptors.request.use(
+  (config) => config,
+  (error) => {
+    errorNotificaton('Bad request');
+    return Promise.reject(error);
+  }
+);
+
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    errorNotificaton(error.response ? error.response.data.error : error.message);
+    return Promise.reject(error);
+  }
+);
