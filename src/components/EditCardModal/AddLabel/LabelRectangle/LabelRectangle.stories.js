@@ -13,7 +13,7 @@ const Template = (args) => <LabelRectangle {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: 'iksoks',
+  name: 'Lorem',
   color: '#16CEB1',
   checked: true
 };

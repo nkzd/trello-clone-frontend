@@ -1,4 +1,5 @@
 import React from 'react';
+import { mockLists } from '../../../.storybook/mocks';
 import Card from './index';
 
 export default {
@@ -16,34 +17,13 @@ export default {
 const Template = (args) => <Card {...args} />;
 
 export const One = Template.bind({});
-One.args = {
-  _id: '5f788feba88e353396e55ec1',
-  name: 'Markoooo',
-};
+One.args = mockLists.items[0].cards[2];
 
 export const Two = Template.bind({});
-Two.args = {
-  _id: '5f788feba88e353396e52ec2',
-  name: 'With labels',
-  labels: [1, 2, 3, 4, 5],
-};
+Two.args = mockLists.items[0].cards[1];
 
 export const Three = Template.bind({});
-Three.args = {
-  _id: '5f788feba88e353396e54dc3',
-  name: 'With labels',
-  labels: [1, 2, 3, 4, 5],
-  description: 'Lorem ipsum description',
-  dueDate: '1603651162',
-  progressStatus: 'Not Started',
-};
+Three.args = mockLists.items[0].cards[0];
 
 export const Four = Template.bind({});
-Four.args = {
-  _id: '5f788feba88e353396e54dc4',
-  name: 'With labels',
-  labels: [1, 2, 3, 4, 5],
-  description: 'Lorem ipsum description',
-  dueDate: '1603651162',
-  progressStatus: 'Not Started',
-};
+Four.args = mockLists.items[1].cards[0];
