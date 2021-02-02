@@ -4,10 +4,13 @@ import { Plus } from '@styled-icons/boxicons-regular/Plus';
 import { useState } from 'react';
 import XButton from '../XButton';
 import RectangularButton from '../RectanguralButton';
+import { isNewCardValid } from '../../util/validation';
 
 const ListFooter = ({ listId, addCard, deleteList }) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [validationFailed, setValidationFailed] = useState(false);
+  const [validationFailedMessage, setValidationFailedMessage] = useState('');
 
   const handleCardClick = () => {
     setEnableForm(!enableForm);
@@ -19,9 +22,20 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addCard({ listId, name: inputValue });
-    setInputValue('');
-    setEnableForm(false);
+
+    isNewCardValid({ name: inputValue })
+      .then(() => {
+        setValidationFailed(false);
+        setInputValue('');
+        setEnableForm(false);
+        setTimeout(() => {
+          addCard({ listId, name: inputValue });
+        }, 200);
+      })
+      .catch((err) => {
+        setValidationFailedMessage(err.message);
+        setValidationFailed(true);
+      });
   };
 
   const handleDeleteListClick = () => {
@@ -36,7 +50,12 @@ const ListFooter = ({ listId, addCard, deleteList }) => {
           value={inputValue}
           onChange={handleInputChange}
           autoFocus={true}
+          validationFailed={validationFailed}
         />
+        {validationFailed ? (
+          <ErrorMessage>{validationFailedMessage}</ErrorMessage>
+        ) : null}
+
         <div>
           <RectangularButton text='Add Card' color='#5aac44' />
           <XButton onClick={handleCardClick} />
@@ -75,6 +94,10 @@ const StyledInput = styled.input`
   line-height: 20px;
   padding: 6px 12px;
   margin-bottom: 5px;
+  ${(props) =>
+    props.validationFailed
+      ? `border: 1px solid ${props.theme.validationFailedBorderRed}`
+      : null};
 `;
 
 const AddAnotherCardWrapper = styled.div`
@@ -94,6 +117,12 @@ const ListFooterWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 256px;
+`;
+
+const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: ${(props) => props.theme.validationFailedBorderRed};
+  padding: 3px;
 `;
 
 export default ListFooter;

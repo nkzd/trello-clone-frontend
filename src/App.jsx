@@ -33,6 +33,7 @@ export const theme = {
   modalTextGrey: '#5e6c84',
   listBackgroundLight: '#ebecf0',
   iconGrey: '#616161',
+  validationFailedBorderRed: '#FF5733',
 };
 
 export default App;

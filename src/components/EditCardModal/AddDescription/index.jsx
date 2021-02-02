@@ -6,9 +6,13 @@ import AddAttributeWrapper from '../common/AddAttributeWrapper';
 import AddAttributeHeader from '../common/AddAttributeHeader';
 import FlexPlaceholder from '../common/FlexPlaceholder';
 import AddAttributeSubtitle from '../common/AddAttributeSubtitle';
+import { isNewDescriptionValid } from '../../../util/validation';
 
 const AddDescription = ({ closePopup, patchChanges, description }) => {
   const [inputValue, setInputValue] = useState(description);
+  const [validationFailed, setValidationFailed] = useState(false);
+  const [validationFailedMessage, setValidationFailedMessage] = useState('');
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -26,9 +30,18 @@ const AddDescription = ({ closePopup, patchChanges, description }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    patchChanges({ description: inputValue });
-    setInputValue('');
-    closePopup();
+
+    isNewDescriptionValid({ description: inputValue })
+      .then(() => {
+        setValidationFailed(false);
+        patchChanges({ description: inputValue });
+        setInputValue('');
+        closePopup();
+      })
+      .catch((err) => {
+        setValidationFailedMessage(err.message);
+        setValidationFailed(true);
+      });
   };
 
   return (
@@ -46,7 +59,11 @@ const AddDescription = ({ closePopup, patchChanges, description }) => {
             onChange={handleInputChange}
             wrap='soft'
             rows={7}
+            validationFailed={validationFailed}
           />
+          {validationFailed ? (
+            <ErrorMessage>{validationFailedMessage}</ErrorMessage>
+          ) : null}
           <ButtonsWrapper>
             <RectangularButton
               text='Add Description'
@@ -71,11 +88,22 @@ const StyledTextArea = styled.textarea`
   width: 100%;
   margin-bottom: 5px;
   resize: none;
+  ${(props) =>
+    props.validationFailed
+      ? `border: 1px solid ${props.theme.validationFailedBorderRed}`
+      : null};
+  font-family: Tahoma, sans-serif;
 `;
 
 const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
+`;
+
+const ErrorMessage = styled.div`
+  padding: 3px;
+  font-size: 12px;
+  color: ${(props) => props.theme.validationFailedBorderRed};
 `;
 
 export default AddDescription;

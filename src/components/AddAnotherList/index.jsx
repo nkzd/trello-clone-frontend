@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import { Plus } from '@styled-icons/boxicons-regular/Plus';
 import XButton from '../XButton';
 import RectangularButton from '../RectanguralButton';
+import { isNewListValid } from '../../util/validation';
+
 const AddAnotherList = ({ addList }) => {
   const [enableForm, setEnableForm] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [validationFailed, setValidationFailed] = useState(false);
+  const [validationFailedMessage, setValidationFailedMessage] = useState('');
 
   const handleListClick = () => {
     setEnableForm(!enableForm);
@@ -17,9 +21,18 @@ const AddAnotherList = ({ addList }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addList(inputValue);
-    setInputValue('');
-    setEnableForm(false);
+
+    isNewListValid({ name: inputValue })
+      .then(() => {
+        setValidationFailed(false);
+        setInputValue('');
+        setEnableForm(false);
+        addList(inputValue);
+      })
+      .catch((err) => {
+        setValidationFailedMessage(err.message);
+        setValidationFailed(true);
+      });
   };
 
   return enableForm ? (
@@ -30,7 +43,11 @@ const AddAnotherList = ({ addList }) => {
           value={inputValue}
           onChange={handleInputChange}
           autoFocus={true}
+          validationFailed={validationFailed}
         />
+        {validationFailed ? (
+          <ErrorMessage>{validationFailedMessage}</ErrorMessage>
+        ) : null}
         <div>
           <RectangularButton text='Add List' color='#5aac44' />
           <XButton onClick={handleListClick} />
@@ -81,6 +98,15 @@ const StyledInput = styled.input`
   line-height: 20px;
   padding: 6px 12px;
   margin-bottom: 5px;
+  ${(props) =>
+    props.validationFailed
+      ? `border: 1px solid ${props.theme.validationFailedBorderRed}`
+      : null};
+`;
+
+const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: ${(props) => props.theme.validationFailedBorderRed};
 `;
 
 export default AddAnotherList;

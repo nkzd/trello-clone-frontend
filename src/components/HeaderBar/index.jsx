@@ -6,7 +6,7 @@ const HeaderBar = ({handleSidebar}) => {
 
   return (
     <HeaderBarWrapper>
-      <div>Whateverello</div>
+      <div>Trello Clone</div>
       <DotsIcon size={25} onClick={handleSidebar}/>
     </HeaderBarWrapper>
   );
