@@ -63,7 +63,7 @@ const AddAnotherList = ({ addList }) => {
 };
 
 const PlusIcon = styled(Plus)`
-  color: ${(props) => props.theme.iconGrey};
+  color: white;
   margin-right: 5px;
 `;
 

@@ -72,7 +72,7 @@ const getBackground = ({ color, image }) => {
   return color
     ? color
     : image
-    ? `url(${image}1600x900) no-repeat center center fixed`
+    ? `url(${image}${window.innerWidth}x${window.innerHeight}) no-repeat center center fixed`
     : '#fff';
 };
 
