@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Attributes from '../Attributes';
 import LabelList from '../../containers/LabelList';
+import EditCardIcon from '../EditCardIcon';
 
-const Card = ({ labels, name, progressStatus, description, dueDate }) => (
-  <CardWrapper>
-    {labels ? <LabelList labels={labels} /> : null}
-    <NameWrapper>{name}</NameWrapper>
-    <Attributes
-      description={description}
-      progressStatus={progressStatus}
-      dueDate={dueDate}
-    />
-  </CardWrapper>
-);
+const Card = ({ labels, name, progressStatus, description, dueDate }) => {
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
+  return (
+    <CardWrapper
+      onMouseEnter={() => setIsCardHovered(true)}
+      onMouseLeave={() => setIsCardHovered(false)}
+    >
+      {labels ? <LabelList labels={labels} /> : null}
+      <NameWrapper>{name}</NameWrapper>
+      <Attributes
+        description={description}
+        progressStatus={progressStatus}
+        dueDate={dueDate}
+      />
+      {isCardHovered ? <StyledEditIcon /> : null}
+    </CardWrapper>
+  );
+};
 
 const CardWrapper = styled.div`
   box-sizing: border-box;
+  position: relative;
   width: 256px;
   padding: 8px;
   background-color: #fff;
@@ -36,6 +46,13 @@ const CardWrapper = styled.div`
   & > *:first-child {
     margin-top: 0px;
   }
+`;
+
+const StyledEditIcon = styled(EditCardIcon)`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin-top: 0px;
 `;
 
 const NameWrapper = styled.div`
