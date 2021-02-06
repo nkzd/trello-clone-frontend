@@ -69,6 +69,7 @@ const PlusIcon = styled(Plus)`
 
 const AddAnotherListWrapper = styled.div`
   width: 272px;
+  min-width: 272px;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -84,6 +85,7 @@ const AddAnotherListWrapper = styled.div`
 
 const FormWrapper = styled.div`
   width: 272px;
+  min-width: 272px;
   background-color: ${(props) => props.theme.listBackgroundLight};
   padding: 5px;
   border-radius: 5px;

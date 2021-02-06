@@ -45,14 +45,14 @@ const MainPage = ({ lists = [], reorderCards }) => {
           })}
         </DragDropContext>
         <AddAnotherList />
-        <SidebarWrapper showSidebar={showSidebar}>
-          <Sidebar
-            setColor={setColor}
-            setImage={setImage}
-            closeSidebar={handleSidebar}
-          />
-        </SidebarWrapper>
       </ListsWrapper>
+      <SidebarWrapper showSidebar={showSidebar}>
+        <Sidebar
+          setColor={setColor}
+          setImage={setImage}
+          closeSidebar={handleSidebar}
+        />
+      </SidebarWrapper>
       <ToastContainer
         position='bottom-left'
         autoClose={4000}
@@ -84,7 +84,7 @@ const MainPageWrapper = styled.div`
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
-  overflow-x: ${(props) => (props.showSidebar ? 'visible' : 'hidden')};
+  overflow-x: hidden;
 `;
 
 const ListsWrapper = styled.div`
@@ -92,13 +92,15 @@ const ListsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-top: 10px;
+  overflow-x: auto;
+  height: calc(100% - 55px);
+  padding-top: 5px;
 `;
 
 const SidebarWrapper = styled.div`
   position: absolute;
   right: 10px;
-  top: 0px;
+  top: 55px;
   transform: ${(props) =>
     props.showSidebar ? 'translateX(0px)' : 'translateX(350px)'};
   transition: transform 0.4s linear;
