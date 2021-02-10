@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trello clone 
 
-## Available Scripts
+Trello clone web application made with Mongo, Express, React, NodeJS.   
+(Mern stack)
 
-In the project directory, you can run:
+![](header.png)
 
-### `yarn start`
+## Live Demo
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Checkout the live demo at:   
+[https://trello-clone.vukotic.io/][demo]
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Repositories
+Frontend: [https://github.com/nkzd/trello-clone-frontend][frontend-repo]   
+Backend: [https://github.com/nkzd/trello-clone-backend][backend-repo]
 
-### `yarn test`
+## Storybook
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project was built with component driven design in mind using storybook, run storybook with:
 
-### `yarn build`
+```sh
+yarn start storybook
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Development setup
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+##### Backend:  
+  
+Clone the repo:
+``` git clone https://github.com/nkzd/trello-clone-backend.git```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install the dependencies: 
+```npm install ```
 
-### `yarn eject`
+Run the backend app (default port is 1337): 
+```npm run start```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### Frontend:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the repo:
+``` git clone https://github.com/nkzd/trello-clone-frontend```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Install the dependencies: 
+```yarn install ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Create a .env file with REACT_APP_API_URL enviroment variable that points to backend. Example can be found in .env.example file. Default is http://localhost:1337/.
+``` REACT_APP_API_URL="http://localhost:1337/"```
 
-## Learn More
+Run the frontend app (default port is 3000): 
+```yarn start```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Distributed under the MIT license. See ``LICENSE`` for more information.
 
-### Code Splitting
+[https://github.com/nkzd][github]
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<!-- Markdown link & img dfn's -->
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[wiki]: https://github.com/yourname/yourproject/wiki
+[demo]: https://trello-clone.vukotic.io/
+[backend-repo]: https://github.com/nkzd/trello-clone-backend
+[frontend-repo]: https://github.com/nkzd/trello-clone-frontend
+[linkedin]: https://www.linkedin.com/in/aljosa-vukotic/
+[github]: https://github.com/nkzd
