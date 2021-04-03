@@ -19,7 +19,7 @@ Backend: [https://github.com/nkzd/trello-clone-backend][backend-repo]
 Project was built with component driven design in mind using storybook, run storybook with:
 
 ```sh
-yarn start storybook
+yarn storybook
 ```
 
 ## Development setup
