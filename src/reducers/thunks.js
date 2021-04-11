@@ -8,6 +8,9 @@ import {
   addListFailure,
   addListRequest,
   addListSuccess,
+  editListFailure,
+  editListRequest,
+  editListSuccess,
   deleteCardFailure,
   deleteCardRequest,
   deleteCardSuccess,
@@ -85,6 +88,19 @@ export function addList(name) {
       .catch((error) => {
         console.log(error);
         dispatch(addListFailure(error));
+      });
+  };
+}
+
+export function editList({listId, changes}) {
+  return (dispatch) => {
+    dispatch(editListRequest());
+    return axios
+      .patch(`/list/${listId}`, changes)
+      .then(({ data }) => dispatch(editListSuccess(data)))
+      .catch((error) => {
+        console.log(error);
+        dispatch(editListFailure(error));
       });
   };
 }

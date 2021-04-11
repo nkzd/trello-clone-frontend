@@ -5,11 +5,12 @@ import Card from '../Card';
 import ListFooter from '../../containers/ListFooter';
 import Popup from 'reactjs-popup';
 import EditCardModal from '../../containers/EditCardModal';
+import ListName from '../../containers/ListName';
 
 const List = ({ name, cards = [], listId }) => {
   return (
     <ListWrapper>
-      <ListNameWrapper>{name}</ListNameWrapper>
+      <ListName listId={listId} name={name} />
       <Droppable droppableId={listId}>
         {(provided, snapshot) => (
           <div
@@ -60,11 +61,6 @@ const List = ({ name, cards = [], listId }) => {
     </ListWrapper>
   );
 };
-
-const ListNameWrapper = styled.div`
-  font-weight: bold;
-  padding: 10px;
-`;
 
 const ListWrapper = styled.div`
   box-sizing: border-box;

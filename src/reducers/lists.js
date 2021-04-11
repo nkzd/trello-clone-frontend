@@ -13,6 +13,9 @@ const {
   ADD_LIST_SUCCESS,
   ADD_LIST_REQUEST,
   ADD_LIST_FAILURE,
+  EDIT_LIST_SUCCESS,
+  EDIT_LIST_REQUEST,
+  EDIT_LIST_FAILURE,
   DELETE_LIST_REQUEST,
   DELETE_LIST_SUCCESS,
   DELETE_LIST_FAILURE,
@@ -126,6 +129,18 @@ const lists = (
     case ADD_LIST_FAILURE:
       return { ...state, isFetching: false };
 
+    case EDIT_LIST_REQUEST:
+      return { ...state, isFetching: true };
+    case EDIT_LIST_SUCCESS: {
+      const newList = action.payload;
+      const listsCopy = [...state.items];
+      const listIndex = state.items.findIndex((list) => list._id === newList._id);
+      listsCopy[listIndex] = newList;
+      return { ...state, isFetching: false, items: listsCopy };
+    }
+    case EDIT_LIST_FAILURE:
+      return { ...state, isFetching: false };
+
     case DELETE_LIST_REQUEST:
       return { ...state, isFetching: true };
     case DELETE_LIST_SUCCESS: {
@@ -185,7 +200,9 @@ const lists = (
       };
     }
     default:
-      return state;
+      return {
+        ...state
+      };
   }
 };
 

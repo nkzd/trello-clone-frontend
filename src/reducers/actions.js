@@ -163,6 +163,29 @@ export const addListSuccess = (payload) => {
   };
 };
 
+export const EDIT_LIST_REQUEST = 'EDIT_LIST_REQUEST';
+export const editListRequest = () => {
+  return {
+    type: EDIT_LIST_REQUEST,
+  };
+};
+
+export const EDIT_LIST_FAILURE = 'EDIT_LIST_FAILURE';
+export const editListFailure = (error) => {
+  return {
+    type: EDIT_LIST_FAILURE,
+    error,
+  };
+};
+
+export const EDIT_LIST_SUCCESS = 'EDIT_LIST_SUCCESS';
+export const editListSuccess = (payload) => {
+  return {
+    type: EDIT_LIST_SUCCESS,
+    payload,
+  };
+};
+
 export const DELETE_CARD_REQUEST = 'DELETE_CARD_REQUEST';
 export const deleteCardRequest = () => {
   return {
