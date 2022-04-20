@@ -5,11 +5,6 @@ Trello clone web application made with Mongo, Express, React, NodeJS.
 
 ![](header.png)
 
-## Live Demo
-
-Checkout the live demo at:   
-[https://trello-clone.vukotic.io/][demo]
-
 ## Repositories
 Frontend: [https://github.com/nkzd/trello-clone-frontend][frontend-repo]   
 Backend: [https://github.com/nkzd/trello-clone-backend][backend-repo]
